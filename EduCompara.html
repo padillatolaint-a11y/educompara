@@ -4155,8 +4155,8 @@
       document.querySelectorAll(".drawer-nav-item").forEach(item => item.classList.remove("active"));
 
       const targetSec = document.getElementById("sec-" + tabId);
-      const targetTab = document.querySelector(.dock-tab[data-tab="\"]);
-      const targetDrawer = document.querySelector(.drawer-nav-item[data-drawer-tab="\"]);
+      const targetTab = document.querySelector('.dock-tab[data-tab="' + tabId + '"]');
+      const targetDrawer = document.querySelector('.drawer-nav-item[data-drawer-tab="' + tabId + '"]');
 
       if (targetSec) targetSec.classList.add("active");
       if (targetTab) targetTab.classList.add("active");
