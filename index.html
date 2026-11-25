@@ -2555,6 +2555,133 @@
   </header>
 
   <!-- ==========================================================================
+       DRAWER / VENTANA LATERAL DE NAVEGACIÓN (DRAWER DESLIZABLE)
+       ========================================================================== -->
+  <div id="drawer-backdrop" class="drawer-backdrop" onclick="toggleDrawer(false)"></div>
+  <aside id="sidebar-drawer" class="sidebar-drawer" aria-label="Navegación lateral de módulos">
+    <div class="drawer-header">
+      <div class="drawer-header-title">
+        <div style="width:36px; height:36px; background:white; border-radius:8px; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+          <img src="logo_educacion_comparada.jpg" alt="EDU-113" style="width:100%; height:auto;">
+        </div>
+        <div>
+          <h3>EduCompara</h3>
+          <p>Asignatura EDU-113 · UAGRM</p>
+        </div>
+      </div>
+      <button class="btn-drawer-close" onclick="toggleDrawer(false)" aria-label="Cerrar menú">✕</button>
+    </div>
+
+    <div class="drawer-body">
+      <div class="drawer-section-label">Módulos del Laboratorio</div>
+      <ul class="drawer-nav-list">
+        <li>
+          <a class="drawer-nav-item active" data-drawer-tab="portada" onclick="navTo('portada'); toggleDrawer(false);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            <span>0. Portada General</span>
+            <span class="drawer-badge">Inicio</span>
+          </a>
+        </li>
+        <li>
+          <a class="drawer-nav-item" data-drawer-tab="inicio" onclick="navTo('inicio'); toggleDrawer(false);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            <span>1. Ruta de Aprendizaje</span>
+            <span class="drawer-badge">Modular</span>
+          </a>
+        </li>
+        <li>
+          <a class="drawer-nav-item" data-drawer-tab="casos" onclick="navTo('casos'); toggleDrawer(false);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            <span>2. Casos Prácticos</span>
+            <span class="drawer-badge">5 Casos</span>
+          </a>
+        </li>
+        <li>
+          <a class="drawer-nav-item" data-drawer-tab="comparador" onclick="navTo('comparador'); toggleDrawer(false);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M13 6h3a2 2 0 0 1 2 2v7"/><path d="M11 18H8a2 2 0 0 1-2-2V9"/></svg>
+            <span>3. Mesa Comparativa</span>
+            <span class="drawer-badge">6 Países</span>
+          </a>
+        </li>
+        <li>
+          <a class="drawer-nav-item" data-drawer-tab="pisa" onclick="navTo('pisa'); toggleDrawer(false);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            <span>4. Pruebas PISA</span>
+            <span class="drawer-badge" style="background:#b91c1c; color:white;">OCDE</span>
+          </a>
+        </li>
+        <li>
+          <a class="drawer-nav-item" data-drawer-tab="autoevaluacion" onclick="navTo('autoevaluacion'); toggleDrawer(false);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span>5. Autoevaluación</span>
+            <span class="drawer-badge">8 Reactivos</span>
+          </a>
+        </li>
+        <li>
+          <a class="drawer-nav-item" data-drawer-tab="cuaderno" onclick="navTo('cuaderno'); toggleDrawer(false);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            <span>6. Mi Cuaderno</span>
+            <span class="drawer-badge">Notas</span>
+          </a>
+        </li>
+        <li>
+          <a class="drawer-nav-item" data-drawer-tab="guia" onclick="navTo('guia'); toggleDrawer(false);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            <span>7. Guía Metodológica</span>
+            <span class="drawer-badge" style="background:#0d9488; color:white;">Recurso</span>
+          </a>
+        </li>
+        <li>
+          <a class="drawer-nav-item" data-drawer-tab="progreso" onclick="navTo('progreso'); toggleDrawer(false);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>8. Mi Registro</span>
+            <span class="drawer-badge">Avance</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="drawer-section-label">Herramientas & Descargas</div>
+      <ul class="drawer-nav-list">
+        <li>
+          <a class="drawer-nav-item" onclick="exportStudentReport(); toggleDrawer(false);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span>Descargar Informe Completo (.TXT)</span>
+          </a>
+        </li>
+        <li>
+          <a class="drawer-nav-item" onclick="downloadAllCaseAnswers(); toggleDrawer(false);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            <span>Descargar Respuestas de Casos</span>
+          </a>
+        </li>
+        <li>
+          <a class="drawer-nav-item" onclick="downloadAllQuizAnswers(); toggleDrawer(false);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            <span>Descargar Respuestas del Test</span>
+          </a>
+        </li>
+        <li>
+          <a class="drawer-nav-item" onclick="openHelpModal(); toggleDrawer(false);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            <span>Instrucciones & Ayuda</span>
+          </a>
+        </li>
+        <li>
+          <a class="drawer-nav-item" onclick="resetStudentProgress(); toggleDrawer(false);" style="color:#b91c1c;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+            <span>Reiniciar Mi Progreso</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="drawer-footer">
+      <strong>EDU-113 · Educación Comparada</strong><br>
+      UAGRM · Facultad de Humanidades
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
        DOCK DE NAVEGACIÓN MODERNO (TIPO APP MÓVIL / GALAKSI BENTO)
        ========================================================================== -->
   <div class="app-dock-wrapper">
