@@ -8,6 +8,333 @@
   
   <style>
     /* ==========================================================================
+       DRAWER LATERAL DESLIZABLE ("VENTANITA LATERAL" ESTILO GUÍA EDU-113)
+       ========================================================================== */
+    .btn-drawer-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.14);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      padding: 7px 14px;
+      border-radius: var(--radius-pill);
+      font-size: 0.85rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      margin-right: 12px;
+      flex-shrink: 0;
+    }
+    .btn-drawer-toggle:hover {
+      background: var(--uagrm-accent);
+      border-color: var(--uagrm-gold);
+      transform: translateY(-1px);
+    }
+    .drawer-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(7, 28, 50, 0.65);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .drawer-backdrop.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    .sidebar-drawer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 330px;
+      max-width: 86vw;
+      background: #ffffff;
+      z-index: 1001;
+      box-shadow: 6px 0 32px rgba(7, 28, 50, 0.35);
+      transform: translateX(-100%);
+      transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .sidebar-drawer.active {
+      transform: translateX(0);
+    }
+    .drawer-header {
+      padding: 18px 20px;
+      background: var(--uagrm-navy);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 3.5px solid var(--uagrm-red);
+    }
+    .drawer-header-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .drawer-header-title h3 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      margin: 0;
+      color: white;
+    }
+    .drawer-header-title p {
+      font-size: 0.72rem;
+      color: #93c5fd;
+      margin: 2px 0 0 0;
+    }
+    .btn-drawer-close {
+      background: rgba(255, 255, 255, 0.16);
+      border: none;
+      color: white;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .btn-drawer-close:hover {
+      background: var(--uagrm-red);
+    }
+    .drawer-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 14px 0;
+    }
+    .drawer-section-label {
+      padding: 10px 20px 4px 20px;
+      font-size: 0.68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #64748b;
+    }
+    .drawer-nav-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 16px 0;
+    }
+    .drawer-nav-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 20px;
+      color: #1e293b;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border-left: 4px solid transparent;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .drawer-nav-item:hover {
+      background: #f1f5f9;
+      color: var(--uagrm-navy);
+    }
+    .drawer-nav-item.active {
+      background: #eff6ff;
+      color: var(--uagrm-navy);
+      font-weight: 800;
+      border-left-color: var(--uagrm-red);
+    }
+    .drawer-nav-item svg {
+      width: 18px;
+      height: 18px;
+      stroke-width: 2.2;
+      color: #64748b;
+      flex-shrink: 0;
+    }
+    .drawer-nav-item.active svg {
+      color: var(--uagrm-blue);
+    }
+    .drawer-nav-item .drawer-badge {
+      margin-left: auto;
+      font-size: 0.65rem;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: 12px;
+      background: #e2e8f0;
+      color: #475569;
+    }
+    .drawer-nav-item.active .drawer-badge {
+      background: var(--uagrm-red);
+      color: white;
+    }
+    .drawer-footer {
+      padding: 14px 20px;
+      background: #f8fafc;
+      border-top: 1px solid var(--border-color);
+      font-size: 0.75rem;
+      color: #64748b;
+      text-align: center;
+    }
+
+    /* ==========================================================================
+       PORTADA GENERAL DE BIENVENIDA (SPLASH / PORTADA ACADÉMICA UAGRM)
+       ========================================================================== */
+    .portada-wrapper {
+      max-width: 1100px;
+      margin: 0 auto 36px auto;
+    }
+    .portada-hero-card {
+      background: linear-gradient(145deg, #071c32 0%, #0d234a 55%, #173655 100%);
+      border-radius: var(--radius-xl);
+      padding: 44px 36px;
+      color: #ffffff;
+      box-shadow: 0 18px 44px rgba(7, 28, 50, 0.35);
+      position: relative;
+      overflow: hidden;
+      border: 1.5px solid rgba(255, 255, 255, 0.14);
+      margin-bottom: 28px;
+    }
+    .portada-hero-card::before {
+      content: "";
+      position: absolute;
+      top: -90px;
+      right: -90px;
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(185, 28, 28, 0.28) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .portada-institution-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    .portada-inst-titles h2 {
+      font-size: 1rem;
+      font-weight: 800;
+      color: #93c5fd;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin: 0 0 4px 0;
+    }
+    .portada-inst-titles p {
+      font-size: 0.85rem;
+      color: #cbd5e1;
+      margin: 0;
+    }
+    .portada-main-title {
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      font-weight: 900;
+      line-height: 1.15;
+      color: #ffffff;
+      margin: 0 0 14px 0;
+      letter-spacing: -0.02em;
+    }
+    .portada-main-title span {
+      color: #60a5fa;
+      background: linear-gradient(90deg, #93c5fd, #60a5fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .portada-description {
+      font-size: 1.1rem;
+      color: #e2e8f0;
+      line-height: 1.65;
+      max-width: 840px;
+      margin: 0 0 28px 0;
+    }
+    .portada-personaje-container {
+      background: rgba(255, 255, 255, 0.07);
+      border: 1.5px solid rgba(255, 255, 255, 0.18);
+      border-radius: 20px;
+      padding: 24px;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+    .portada-info-chips {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px;
+      margin-bottom: 30px;
+    }
+    .portada-chip-card {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
+    }
+    .portada-chip-label {
+      font-size: 0.7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #93c5fd;
+      margin-bottom: 4px;
+    }
+    .portada-chip-val {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+    .portada-actions-bar {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .btn-start-portal {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: linear-gradient(135deg, #b91c1c 0%, #dc2626 100%);
+      color: white;
+      padding: 18px 36px;
+      border-radius: var(--radius-pill);
+      font-size: 1.15rem;
+      font-weight: 800;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 8px 25px rgba(185, 28, 28, 0.5);
+      transition: all 0.25s ease;
+      animation: portalPulse 2.8s infinite;
+    }
+    @keyframes portalPulse {
+      0%, 100% { box-shadow: 0 8px 25px rgba(185, 28, 28, 0.5); transform: translateY(0); }
+      50% { box-shadow: 0 12px 36px rgba(185, 28, 28, 0.75); transform: translateY(-2px); }
+    }
+    .btn-start-portal:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 14px 36px rgba(185, 28, 28, 0.65);
+    }
+    .btn-portal-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.12);
+      color: #ffffff;
+      border: 1.5px solid rgba(255, 255, 255, 0.28);
+      padding: 15px 24px;
+      border-radius: var(--radius-pill);
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .btn-portal-secondary:hover {
+      background: rgba(255, 255, 255, 0.22);
+      border-color: #ffffff;
+      color: #ffffff;
+    }
+    /* ==========================================================================
        VARIABLES INSTITUCIONALES UAGRM & HUMANIDADES (Estilo Moderno Galaksi)
        ========================================================================== */
     :root {
@@ -412,17 +739,47 @@
       height: 148px;
     }
 
+    .guia-personaje {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      padding: 20px;
+      font-family: inherit;
+    }
+    .guia-avatar {
+      width: 130px;
+      height: 155px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      animation: guia-flotar 3.4s ease-in-out infinite;
+      filter: drop-shadow(0 9px 8px #071c3240);
+      flex-shrink: 0;
+    }
+    .guia-avatar svg {
+      width: 118px;
+      height: 148px;
+    }
     .guia-mensaje {
-      position: relative;
       background: #ffffff;
       color: #173655;
-      border: 1px solid #c9dfea;
-      border-radius: 16px;
-      padding: 16px 20px;
-      max-width: 320px;
-      font-size: 15px;
+      border: 1.5px solid #c9dfea;
+      border-radius: 18px;
+      padding: 20px 24px;
+      max-width: 520px;
+      font-size: 23px;
+      font-weight: 600;
       line-height: 1.5;
-      box-shadow: 0 8px 24px rgba(7, 28, 50, 0.22);
+      box-shadow: 0 8px 28px rgba(7, 28, 50, 0.22);
+    }
+    @media (max-width: 640px) {
+      .guia-mensaje {
+        font-size: 18px;
+        max-width: 100%;
+        padding: 16px 18px;
+      }
     }
 
     .guia-badge {
@@ -2163,7 +2520,11 @@
        ========================================================================== -->
   <header class="uagrm-topbar">
     <div class="topbar-container">
-      <a href="#inicio" class="brand-wrap" onclick="navTo('inicio')">
+      <button class="btn-drawer-toggle" onclick="toggleDrawer(true)" aria-label="Abrir menú de navegación lateral">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <span>Menú</span>
+      </button>
+      <a href="#portada" class="brand-wrap" onclick="navTo('portada')">
         <div class="topbar-logos">
           <img src="logo_ciencias_educacion.jpg" alt="Ciencias de la Educación · Facultad de Humanidades UAGRM" class="uagrm-header-logo">
           <img src="logo_educacion_comparada.jpg" alt="Educación Comparada · EDU 113" class="uagrm-header-logo">
@@ -2198,7 +2559,12 @@
        ========================================================================== -->
   <div class="app-dock-wrapper">
     <nav class="app-dock" aria-label="Menú principal de navegación">
-      <a href="#inicio" class="dock-tab active" data-tab="inicio" onclick="navTo('inicio')">
+      <a href="#portada" class="dock-tab active" data-tab="portada" onclick="navTo('portada')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <span>Portada</span>
+      </a>
+
+      <a href="#inicio" class="dock-tab" data-tab="inicio" onclick="navTo('inicio')">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
         <span>Inicio</span>
       </a>
@@ -2249,7 +2615,176 @@
     <!-- ----------------------------------------------------------------------
          SECCIÓN 1: INICIO & HERO BANNER BENTO
          ---------------------------------------------------------------------- -->
-    <section id="sec-inicio" class="app-section active">
+    <!-- ======================================================================
+         SECCIÓN 0: PORTADA GENERAL DE LA MATERIA (SPLASH DE BIENVENIDA)
+         ====================================================================== -->
+    <section id="sec-portada" class="app-section active">
+      <div class="portada-wrapper">
+        <div class="portada-hero-card">
+          <!-- Barra institucional con logos -->
+          <div class="portada-institution-bar">
+            <div style="display: flex; align-items: center; gap: 14px;">
+              <img src="logo_ciencias_educacion.jpg" alt="Ciencias de la Educación UAGRM" style="height: 52px; width: auto; border-radius: 8px; background: white; padding: 4px;">
+              <img src="logo_educacion_comparada.jpg" alt="Educación Comparada EDU 113" style="height: 52px; width: auto; border-radius: 8px; background: white; padding: 4px;">
+              <div class="portada-inst-titles">
+                <h2>Universidad Autónoma Gabriel René Moreno</h2>
+                <p>Facultad de Humanidades · Carrera de Ciencias de la Educación</p>
+              </div>
+            </div>
+            <div style="display: flex; gap: 8px; align-items: center;">
+              <span class="portada-badge-uagrm">EDU-113</span>
+              <span class="portada-badge-tag">Gestión 2026</span>
+            </div>
+          </div>
+
+          <!-- Título principal -->
+          <h1 class="portada-main-title">
+            EduCompara: <span>Laboratorio de Educación Comparada</span>
+          </h1>
+          <p class="portada-description">
+            Recurso educativo digital interactivo diseñado para el aprendizaje científico de los sistemas educativos, análisis de datos empíricos, evaluación internacional PISA y aplicación paso a paso del método comparativo.
+          </p>
+
+          <!-- Tarjeta del Personaje Orientador Víctor -->
+          <div class="portada-personaje-container">
+            <div class="guia-personaje" style="padding: 0;">
+              <div class="guia-avatar" aria-hidden="true">
+                <svg viewBox="0 0 120 150" xmlns="http://www.w3.org/2000/svg">
+      <!-- Sombra base -->
+      <ellipse cx="59" cy="144" rx="37" ry="5" fill="#07223d" opacity=".2"/>
+
+      <!-- Cuerpo (Camisa blanca con contorno sutil) -->
+      <path d="M38 91 Q60 80 83 91 L91 129 H28Z"
+            fill="#ffffff"
+            stroke="#173655"
+            stroke-width="2.5"
+            stroke-linejoin="round"/>
+
+      <!-- Piernas -->
+      <path d="M48 121 L43 141 H61 L64 121
+               M72 121 L75 141 H94 L86 120"
+            fill="#284c72"/>
+
+      <!-- Zapatos -->
+      <path d="M39 140h24v7H35q-4-3 4-7
+               m36 0h20q9 3 2 7H72Z"
+            fill="#17283e"/>
+
+      <!-- Brazos (Mangas de camisa blanca) -->
+      <path d="M30 96 Q18 112 32 123
+               L40 116 L43 104
+               M82 97 Q105 107 99 118
+               L89 117 L79 107"
+            fill="#ffffff"
+            stroke="#173655"
+            stroke-width="2.5"
+            stroke-linejoin="round"/>
+
+      <!-- Cuello -->
+      <rect x="44" y="74" width="29" height="23" rx="10" fill="#d99365"/>
+
+      <!-- Solapa / Cuello de la camisa -->
+      <path d="M44 88 L59 97 L73 88"
+            fill="none"
+            stroke="#173655"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"/>
+
+      <!-- Rostro -->
+      <ellipse cx="59" cy="52" rx="31" ry="35" fill="#f0b58b"/>
+
+      <!-- Cabello base -->
+      <path d="M28 53 Q19 15 51 16
+               Q77 3 91 29 L88 55
+               Q81 35 72 32
+               Q50 50 28 43Z"
+            fill="#202d3b"/>
+
+      <!-- Mechón de cabello blanco -->
+      <path d="M48 16 Q38 26 39 42 Q47 39 54 29 Q52 21 48 16Z"
+            fill="#ffffff"/>
+
+      <!-- Ojos -->
+      <circle cx="46" cy="58" r="3" fill="#17283e"/>
+      <circle cx="71" cy="58" r="3" fill="#17283e"/>
+
+      <!-- Lentes -->
+      <g stroke="#17283e" stroke-width="2.2" fill="#ffffff" fill-opacity="0.25">
+        <rect x="36" y="51" width="20" height="14" rx="3.5"/>
+        <rect x="61" y="51" width="20" height="14" rx="3.5"/>
+        <line x1="56" y1="57" x2="61" y2="57" stroke-linecap="round"/>
+      </g>
+
+      <!-- Sonrisa -->
+      <path d="M50 72 Q60 80 70 71"
+            fill="none"
+            stroke="#954d3b"
+            stroke-width="3"
+            stroke-linecap="round"/>
+
+      <!-- Cuaderno -->
+      <rect x="52" y="97" width="17" height="19"
+            rx="2" fill="#ffffff"
+            stroke="#173655" stroke-width="2"/>
+
+      <path d="M56 102h9m-9 5h9"
+            stroke="#5286a4" stroke-width="2"/>
+                </svg>
+              </div>
+              <div class="guia-mensaje" role="status">
+                <span class="guia-badge" style="background: rgba(185, 28, 28, 0.12); color: #b91c1c;">Guía Orientador</span>
+                <div style="color: #173655; margin-bottom: 6px;">¡Bienvenido! Aprenderemos juntos paso a paso.</div>
+                <div style="font-size: 17px; font-weight: 500; color: #475569; line-height: 1.45;">
+                  Aplica las 5 fases metodológicas, contrasta las normativas de 6 países y comprueba tus análisis con feedback inmediato.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ficha Académica del Curso -->
+          <div class="portada-info-chips">
+            <div class="portada-chip-card">
+              <div class="portada-chip-label">Cátedra Universitaria</div>
+              <div class="portada-chip-val">Educación Comparada (EDU-113)</div>
+            </div>
+            <div class="portada-chip-card">
+              <div class="portada-chip-label">Docente Responsable</div>
+              <div class="portada-chip-val">Lic. Víctor Henry Andrade Sánchez</div>
+            </div>
+            <div class="portada-chip-card">
+              <div class="portada-chip-label">Entorno Tecnológico</div>
+              <div class="portada-chip-val">100% Offline · Compatible con Celular</div>
+            </div>
+            <div class="portada-chip-card">
+              <div class="portada-chip-label">Estructura Didáctica</div>
+              <div class="portada-chip-val">5 Casos · 6 Países · Módulo PISA</div>
+            </div>
+          </div>
+
+          <!-- Botón de Entrada Principal y Enlaces Directos -->
+          <div class="portada-actions-bar">
+            <button class="btn-start-portal" onclick="navTo('inicio')">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              <span>Comenzar / Entrar al Laboratorio ➔</span>
+            </button>
+            <button class="btn-portal-secondary" onclick="navTo('casos')">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
+              Ir a Casos Prácticos
+            </button>
+            <button class="btn-portal-secondary" onclick="navTo('pisa')">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              Pruebas PISA
+            </button>
+            <button class="btn-portal-secondary" onclick="navTo('guia')">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+              Guía Metodológica
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="sec-inicio" class="app-section">
       <div class="hero-banner">
         <div class="hero-content">
           <div class="hero-tag">
@@ -3603,16 +4138,29 @@
     /* ==========================================================================
        3. NAVEGACIÓN Y CONTROLADORES DE VISTA
        ========================================================================== */
+    function toggleDrawer(isOpen) {
+      const drawer = document.getElementById("sidebar-drawer");
+      const backdrop = document.getElementById("drawer-backdrop");
+      if (!drawer || !backdrop) return;
+      const willOpen = (isOpen !== undefined) ? isOpen : !drawer.classList.contains("active");
+      drawer.classList.toggle("active", willOpen);
+      backdrop.classList.toggle("active", willOpen);
+      document.body.style.overflow = willOpen ? "hidden" : "";
+    }
+
     function navTo(tabId) {
       AppState.activeTab = tabId;
       document.querySelectorAll(".app-section").forEach(sec => sec.classList.remove("active"));
       document.querySelectorAll(".dock-tab").forEach(tab => tab.classList.remove("active"));
+      document.querySelectorAll(".drawer-nav-item").forEach(item => item.classList.remove("active"));
 
       const targetSec = document.getElementById("sec-" + tabId);
-      const targetTab = document.querySelector(`.dock-tab[data-tab="${tabId}"]`);
+      const targetTab = document.querySelector(.dock-tab[data-tab="\"]);
+      const targetDrawer = document.querySelector(.drawer-nav-item[data-drawer-tab="\"]);
 
       if (targetSec) targetSec.classList.add("active");
       if (targetTab) targetTab.classList.add("active");
+      if (targetDrawer) targetDrawer.classList.add("active");
 
       window.scrollTo({ top: 0, behavior: "smooth" });
       saveState();
@@ -4879,7 +5427,7 @@
 
       // Enrutador inicial por hash
       const hash = location.hash.replace("#", "") || "inicio";
-      if (["inicio", "casos", "comparador", "pisa", "autoevaluacion", "cuaderno", "guia", "progreso"].includes(hash)) {
+      if (["portada", "inicio", "casos", "comparador", "pisa", "autoevaluacion", "cuaderno", "guia", "progreso"].includes(hash)) {
         navTo(hash);
       }
     });
