@@ -927,9 +927,10 @@
     }
 
     .btn-action-secondary {
-      background: rgba(255, 255, 255, 0.14);
-      color: white;
-      border: 1px solid rgba(255, 255, 255, 0.3);
+      background: #071c32;
+      color: #ffffff;
+      border: 2px solid #b91c1c;
+      box-shadow: 0 4px 12px rgba(7, 28, 50, 0.25);
       padding: 13px 22px;
       border-radius: var(--radius-pill);
       font-size: 0.92rem;
@@ -2511,7 +2512,180 @@
         page-break-after: always;
       }
     }
-  </style>
+      /* ==========================================================================
+       TOPBAR REDISEÑADA (ESTILO COMPAÑERA: LOGOS SEPARADOS Y TÍTULO CENTRAL)
+       ========================================================================== */
+    .uagrm-topbar {
+      background: #ffffff;
+      border-bottom: 3.5px solid var(--uagrm-red);
+      box-shadow: 0 4px 16px rgba(7, 28, 50, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    .topbar-container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .topbar-left-zone {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .topbar-left-zone .btn-drawer-toggle {
+      background: var(--uagrm-navy);
+      color: #ffffff;
+      border: 1.5px solid var(--uagrm-navy);
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      font-size: 0.88rem;
+      transition: all 0.2s ease;
+    }
+    .topbar-left-zone .btn-drawer-toggle:hover {
+      background: var(--uagrm-red);
+      border-color: var(--uagrm-red);
+      transform: translateY(-1px);
+    }
+    .topbar-center-title {
+      text-align: center;
+      flex: 1;
+    }
+    .topbar-center-title h1 {
+      font-size: 1.35rem;
+      font-weight: 900;
+      color: var(--uagrm-navy);
+      margin: 0;
+      letter-spacing: -0.01em;
+    }
+    .topbar-center-title p {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #64748b;
+      margin: 2px 0 0 0;
+    }
+    .topbar-right-zone {
+      display: flex;
+      align-items: center;
+    }
+    .uagrm-header-logo {
+      height: 48px;
+      width: auto;
+      object-fit: contain;
+      transition: transform 0.2s ease;
+    }
+    .uagrm-header-logo:hover {
+      transform: scale(1.04);
+    }
+    @media (max-width: 768px) {
+      .topbar-center-title h1 {
+        font-size: 1rem;
+      }
+      .topbar-center-title p {
+        display: none;
+      }
+      .uagrm-header-logo {
+        height: 38px;
+      }
+      .topbar-left-zone .btn-drawer-toggle span {
+        display: none;
+      }
+      .topbar-left-zone .btn-drawer-toggle {
+        padding: 8px 10px;
+      }
+    }
+      /* =====================================================================
+       HEADER ESTILO LIMPIO (3 PARTES: LOGO IZQ, TITULO CENTRO, LOGO DER)
+       ===================================================================== */
+    .uagrm-topbar {
+      background: #071c32 !important;
+      border-bottom: 3.5px solid #b91c1c !important;
+      padding: 10px 18px !important;
+      position: sticky !important;
+      top: 0 !important;
+      z-index: 100 !important;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3) !important;
+    }
+    .header-clean-layout {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      max-width: 1400px !important;
+      margin: 0 auto !important;
+      gap: 16px !important;
+    }
+    .header-left {
+      display: flex !important;
+      align-items: center !important;
+      gap: 12px !important;
+      flex: 0 0 auto !important;
+    }
+    .uagrm-header-logo-left {
+      height: 52px !important;
+      width: auto !important;
+      border-radius: 6px !important;
+      background: #ffffff !important;
+      padding: 2px 6px !important;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2) !important;
+      display: block !important;
+    }
+    .header-center {
+      text-align: center !important;
+      flex: 1 1 auto !important;
+    }
+    .header-main-title {
+      color: #ffffff !important;
+      font-size: 1.35rem !important;
+      font-weight: 800 !important;
+      letter-spacing: -0.01em !important;
+      margin: 0 !important;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.4) !important;
+    }
+    .header-sub-title {
+      color: #c9dfea !important;
+      font-size: 0.85rem !important;
+      font-weight: 600 !important;
+      margin: 3px 0 0 0 !important;
+    }
+    .header-right {
+      display: flex !important;
+      align-items: center !important;
+      gap: 12px !important;
+      flex: 0 0 auto !important;
+    }
+    .uagrm-header-logo-right {
+      height: 52px !important;
+      width: auto !important;
+      border-radius: 6px !important;
+      background: #ffffff !important;
+      padding: 2px 6px !important;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2) !important;
+      display: block !important;
+    }
+    .topbar-quick-actions {
+      display: flex !important;
+      align-items: center !important;
+      gap: 10px !important;
+    }
+    .app-dock-wrapper {
+      display: none !important; /* Ocultar barra horizontal redundante para evitar sobrecarga */
+    }
+    @media (max-width: 920px) {
+      .header-main-title { font-size: 1.05rem !important; }
+      .header-sub-title { font-size: 0.72rem !important; }
+      .uagrm-header-logo-left, .uagrm-header-logo-right { height: 38px !important; }
+      .topbar-quick-actions { display: none !important; }
+    }
+</style>
 </head>
 <body>
 
@@ -2519,37 +2693,38 @@
        HEADER OFICIAL INSTITUCIONAL UAGRM
        ========================================================================== -->
   <header class="uagrm-topbar">
-    <div class="topbar-container">
-      <button class="btn-drawer-toggle" onclick="toggleDrawer(true)" aria-label="Abrir menú de navegación lateral">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-        <span>Menú</span>
-      </button>
-      <a href="#portada" class="brand-wrap" onclick="navTo('portada')">
-        <div class="topbar-logos">
-          <img src="logo_ciencias_educacion.jpg" alt="Ciencias de la Educación · Facultad de Humanidades UAGRM" class="uagrm-header-logo">
-          <img src="logo_educacion_comparada.jpg" alt="Educación Comparada · EDU 113" class="uagrm-header-logo">
-        </div>
-        <div class="brand-text">
-          <h1>EduCompara <span class="pill-badge">UAGRM</span></h1>
-          <p>Ciencias de la Educación · Asignatura EDU-113</p>
-        </div>
-      </a>
-
-      <div class="topbar-actions">
-        <a href="https://compzapata-rgb.github.io/guia-educacion-comparada-edu113./?utm_source=chatgpt.com#modulo-0" target="_blank" rel="noopener noreferrer" class="btn-external-guia" title="Abrir Guía Metodológica complementaria de la materia">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          Guía Metodológica ↗
-        </a>
-        <div class="badge-offline" title="Recurso 100% autónomo. No consume megas ni requiere internet.">
-          <span class="dot"></span> 100% Offline
-        </div>
-        <button class="btn-help" onclick="openHelpModal()" title="Instrucciones y guía de uso">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-          Ayuda
+    <div class="topbar-container header-clean-layout">
+      <!-- Lado Izquierdo: Botón Menú + Logo Educación Comparada EDU 113 -->
+      <div class="header-left">
+        <button class="btn-drawer-toggle" onclick="toggleDrawer(true)" aria-label="Abrir menú de navegación lateral">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          <span>Menú</span>
         </button>
-        <a href="#progreso" class="btn-progress-nav" onclick="navTo('progreso')">
-          Progreso <span class="progress-pill" id="global-progress-pill">0%</span>
+        <a href="#portada" onclick="navTo('portada')" title="Ir a Portada Principal" class="header-logo-link">
+          <img src="logo_educacion_comparada.jpg" alt="Educación Comparada · EDU 113" class="uagrm-header-logo-left">
         </a>
+      </div>
+
+      <!-- Centro: Título Institucional Laboratorio de Educación Comparada -->
+      <div class="header-center">
+        <h1 class="header-main-title">Laboratorio de Educación Comparada</h1>
+        <p class="header-sub-title">EduCompara · UAGRM · Facultad de Humanidades · EDU-113</p>
+      </div>
+
+      <!-- Lado Derecho: Logo Ciencias de la Educación + Acciones -->
+      <div class="header-right">
+        <a href="#portada" onclick="navTo('portada')" title="Ir a Portada Principal" class="header-logo-link">
+          <img src="logo_ciencias_educacion.jpg" alt="Ciencias de la Educación · Facultad de Humanidades UAGRM" class="uagrm-header-logo-right">
+        </a>
+        <div class="topbar-quick-actions">
+          <a href="https://compzapata-rgb.github.io/guia-educacion-comparada-edu113./?utm_source=chatgpt.com#modulo-0" target="_blank" rel="noopener noreferrer" class="btn-external-guia" title="Abrir Guía Metodológica complementaria">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Guía Metodológica ↗
+          </a>
+          <a href="#progreso" class="btn-progress-nav" onclick="navTo('progreso')">
+            Progreso <span class="progress-pill" id="global-progress-pill">0%</span>
+          </a>
+        </div>
       </div>
     </div>
   </header>
@@ -2684,60 +2859,8 @@
   <!-- ==========================================================================
        DOCK DE NAVEGACIÓN MODERNO (TIPO APP MÓVIL / GALAKSI BENTO)
        ========================================================================== -->
-  <div class="app-dock-wrapper">
-    <nav class="app-dock" aria-label="Menú principal de navegación">
-      <a href="#portada" class="dock-tab active" data-tab="portada" onclick="navTo('portada')">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        <span>Portada</span>
-      </a>
-
-      <a href="#inicio" class="dock-tab" data-tab="inicio" onclick="navTo('inicio')">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        <span>Inicio</span>
-      </a>
-      
-      <a href="#casos" class="dock-tab" data-tab="casos" onclick="navTo('casos')">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-        <span>Casos Prácticos</span>
-      </a>
-
-      <a href="#comparador" class="dock-tab" data-tab="comparador" onclick="navTo('comparador')">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M13 6h3a2 2 0 0 1 2 2v7"/><path d="M11 18H8a2 2 0 0 1-2-2V9"/></svg>
-        <span>Mesa Comparativa</span>
-      </a>
-
-      <a href="#pisa" class="dock-tab" data-tab="pisa" onclick="navTo('pisa')">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-        <span>Pruebas PISA</span>
-        <span class="tab-badge" style="background: #b91c1c;">OCDE</span>
-      </a>
-
-      <a href="#autoevaluacion" class="dock-tab" data-tab="autoevaluacion" onclick="navTo('autoevaluacion')">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-        <span>Autoevaluación</span>
-      </a>
-
-      <a href="#cuaderno" class="dock-tab" data-tab="cuaderno" onclick="navTo('cuaderno')">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-        <span>Mi Cuaderno</span>
-      </a>
-
-      <a href="#guia" class="dock-tab" data-tab="guia" onclick="navTo('guia')">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-        <span>Guía Metodológica</span>
-      </a>
-
-      <a href="#progreso" class="dock-tab" data-tab="progreso" onclick="navTo('progreso')">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        <span>Mi Registro</span>
-      </a>
-    </nav>
-  </div>
-
-  <!-- ==========================================================================
-       CONTENIDO PRINCIPAL
-       ========================================================================== -->
-  <main class="main-content" id="main-view">
+  
+<main class="main-content" id="main-view">
 
     <!-- ----------------------------------------------------------------------
          SECCIÓN 1: INICIO & HERO BANNER BENTO
@@ -2957,10 +3080,11 @@
           <div class="guia-personaje-hero">
             <div class="guia-avatar" aria-hidden="true">
               <svg viewBox="0 0 120 150" xmlns="http://www.w3.org/2000/svg">
+                <!-- Sombra base -->
                 <ellipse cx="59" cy="144" rx="37" ry="5" fill="#07223d" opacity=".2"/>
 
-                <!-- Cuerpo -->
-                <path d="M38 91 Q60 80 83 91 L91 129 H28Z" fill="#f3c84b"/>
+                <!-- Cuerpo (Camisa blanca con contorno sutil) -->
+                <path d="M38 91 Q60 80 83 91 L91 129 H28Z" fill="#ffffff" stroke="#173655" stroke-width="2.5" stroke-linejoin="round"/>
 
                 <!-- Piernas -->
                 <path d="M48 121 L43 141 H61 L64 121 M72 121 L75 141 H94 L86 120" fill="#284c72"/>
@@ -2968,37 +3092,47 @@
                 <!-- Zapatos -->
                 <path d="M39 140h24v7H35q-4-3 4-7 m36 0h20q9 3 2 7H72Z" fill="#17283e"/>
 
-                <!-- Brazos -->
-                <path d="M30 96 Q18 112 32 123 L40 116 L43 104 M82 97 Q105 107 99 118 L89 117 L79 107" fill="#f3c84b" stroke="#173655" stroke-width="3"/>
+                <!-- Brazos (Mangas de camisa blanca) -->
+                <path d="M30 96 Q18 112 32 123 L40 116 L43 104 M82 97 Q105 107 99 118 L89 117 L79 107" fill="#ffffff" stroke="#173655" stroke-width="2.5" stroke-linejoin="round"/>
 
                 <!-- Cuello -->
                 <rect x="44" y="74" width="29" height="23" rx="10" fill="#d99365"/>
 
+                <!-- Solapa / Cuello de la camisa -->
+                <path d="M44 88 L59 97 L73 88" fill="none" stroke="#173655" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+
                 <!-- Rostro -->
                 <ellipse cx="59" cy="52" rx="31" ry="35" fill="#f0b58b"/>
 
-                <!-- Cabello -->
+                <!-- Cabello base -->
                 <path d="M28 53 Q19 15 51 16 Q77 3 91 29 L88 55 Q81 35 72 32 Q50 50 28 43Z" fill="#202d3b"/>
 
-                <!-- Ojos -->
-                <circle cx="46" cy="58" r="3" fill="#17283e"/>
-                <circle cx="71" cy="58" r="3" fill="#17283e"/>
+                <!-- Mechón canoso / blanco distintivo -->
+                <path d="M51 16 Q65 14 74 24 Q68 18 56 18 Z" fill="#e2e8f0"/>
 
-                <!-- Sonrisa -->
+                <!-- Lentes -->
+                <rect x="38" y="47" width="17" height="13" rx="3" fill="none" stroke="#0f172a" stroke-width="2.2"/>
+                <rect x="63" y="47" width="17" height="13" rx="3" fill="none" stroke="#0f172a" stroke-width="2.2"/>
+                <path d="M55 53 L63 53" fill="none" stroke="#0f172a" stroke-width="2.2"/>
+
+                <!-- Ojos -->
+                <circle cx="46.5" cy="53.5" r="2.5" fill="#17283e"/>
+                <circle cx="71.5" cy="53.5" r="2.5" fill="#17283e"/>
+
+                <!-- Sonrisa empática -->
                 <path d="M50 72 Q60 80 70 71" fill="none" stroke="#954d3b" stroke-width="3" stroke-linecap="round"/>
 
-                <!-- Cuaderno -->
+                <!-- Cuaderno de apuntes / Guía metodológica -->
                 <rect x="52" y="97" width="17" height="19" rx="2" fill="#ffffff" stroke="#173655" stroke-width="2"/>
-
                 <path d="M56 102h9m-9 5h9" stroke="#5286a4" stroke-width="2"/>
               </svg>
             </div>
 
             <div class="guia-mensaje" role="status">
-              <span class="guia-badge">Orientador Educativo</span>
-              <p style="margin: 0 0 6px 0; font-size: 1.05rem; font-weight: 700; color: #173655;">¡Bienvenido! Aprenderemos juntos paso a paso.</p>
-              <div style="font-size: 0.84rem; color: #475569; font-weight: 500; line-height: 1.45;">
-                Laboratorio interactivo de <strong>Ciencias de la Educación</strong>. Aplica el método comparativo o pon a prueba tu razonamiento.
+              <span class="guia-badge">Orientador Educativo · Víctor</span>
+              <p style="margin: 0 0 8px 0; font-size: 1.25rem; font-weight: 700; color: #173655;">¡Bienvenido a EduCompara!</p>
+              <div style="font-size: 1.05rem; color: #334155; font-weight: 500; line-height: 1.5;">
+                Aprenderemos juntos el método comparativo paso a paso. Analiza las fuentes oficiales, contrasta contextos y pon a prueba tu pensamiento crítico.
               </div>
             </div>
           </div>
@@ -3175,6 +3309,12 @@
         <button class="case-pill-btn" onclick="loadCase(4)">
           <span>05</span> IA y Educación
         </button>
+        <button class="case-pill-btn" onclick="loadCase(5)">
+          <span>06</span> Educación Indígena
+        </button>
+        <button class="case-pill-btn" onclick="loadCase(6)">
+          <span>07</span> PISA vs ERCE
+        </button>
       </div>
 
       <!-- Contenedor del Caso Dinámico -->
@@ -3241,47 +3381,7 @@
       </div>
 
       <!-- Laboratorio de Tasas de Cobertura Bruta vs Neta -->
-      <div class="lab-interactive-card">
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
-          <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--uagrm-navy);">
-            Laboratorio de Datos: Cobertura Bruta vs. Cobertura Neta
-          </h3>
-          <span style="background: var(--uagrm-navy); color: white; padding: 2px 8px; border-radius: var(--radius-pill); font-size: 0.7rem; font-weight: 700;">Simulador</span>
-        </div>
-        <p style="font-size: 0.86rem; color: var(--text-muted); line-height: 1.5;">
-          Experimenta con datos simulados de un distrito escolar ficticio. Descubre por qué una tasa bruta puede superar el 100% y por qué eso no garantiza que todos los niños de la edad teórica estén en la escuela:
-        </p>
-
-        <div class="lab-inputs-grid">
-          <div class="lab-input-group">
-            <label for="input-pop">Población en Edad Oficial (P)</label>
-            <input type="number" id="input-pop" value="1000" min="100" max="100000" oninput="runCoverageLab()">
-          </div>
-          <div class="lab-input-group">
-            <label for="input-total">Matrícula Total (Cualquier edad)</label>
-            <input type="number" id="input-total" value="1080" min="0" max="100000" oninput="runCoverageLab()">
-          </div>
-          <div class="lab-input-group">
-            <label for="input-net">Matrícula en Edad Oficial</label>
-            <input type="number" id="input-net" value="890" min="0" max="100000" oninput="runCoverageLab()">
-          </div>
-        </div>
-
-        <div class="lab-results-display">
-          <div class="lab-stat-box highlight-box">
-            <div class="lab-stat-num" id="lab-gross-val">108.0%</div>
-            <p><strong>Tasa de Cobertura Bruta</strong><br>(Matrícula Total / Población Oficial)</p>
-          </div>
-          <div class="lab-stat-box">
-            <div class="lab-stat-num" id="lab-net-val">89.0%</div>
-            <p><strong>Tasa de Cobertura Neta</strong><br>(Matrícula Oficial / Población Oficial)</p>
-          </div>
-        </div>
-
-        <div id="lab-interpretation-box" style="margin-top: 14px; background: white; padding: 14px; border-radius: var(--radius-md); font-size: 0.84rem; border-left: 4px solid var(--uagrm-accent);">
-          <!-- Dinámico -->
-        </div>
-      </div>
+      
 
       <!-- Enlace directo al Módulo de Pruebas PISA -->
       <div style="background: linear-gradient(135deg, #fef2f2, #fff1f2); border: 1.5px solid #fecaca; border-radius: var(--radius-lg); padding: 20px 24px; margin-top: 28px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; box-shadow: 0 4px 12px rgba(185, 28, 28, 0.06);">
@@ -4098,6 +4198,110 @@
             explanation: "¡Excelente criterio comparativo! Las proposiciones 1 y 3 son las correctas. La prohibición rígida fomenta el analfabetismo digital clandestino, mientras que la tecnolatría acrítica degrada el rigor investigativo. El camino ético es la alfabetización crítica guiada por el docente.",
             incorrectFeedback: "Atención: Recuerda marcar únicamente las dos alternativas que propicien la alfabetización crítica y la centralidad de la mediación pedagógica docente."
           }
+        },
+        {
+          id: 5,
+          title: "Educación Indígena y Plurilingüe: Intraculturalidad vs. Asimilacionismo",
+          badge: "Caso Metodológico 6 · Epistemologías del Sur e Interculturalidad",
+          context: "En el marco de la Ley 070 (Avelino Siñani - Elizardo Pérez), el Estado Plurinacional de Bolivia estructura la educación comunitaria productiva con tres niveles curriculares: base, regionalizado y diversificado, promoviendo la lengua indígena como lengua originaria activa. En contraste, modelos bilingües de transición en otros países usan la lengua vernácula únicamente como puente instrumental para la castellanización definitiva.",
+          stages: [
+            {
+              name: "Descripción",
+              title: "1. Descripción de Políticas Lingüísticas",
+              content: "En el Modelo A (Intracultural-Intercultural Plurilingüe), la lengua originaria se enseña en todas las etapas formativas y se valoran los saberes ancestrales (territorialidad, Vivir Bien). En el Modelo B (Bilingüe de Transición), los textos en lengua originaria se restringen a los primeros 3 años escolares, transfiriendo a los estudiantes íntegramente al castellano en secundaria.",
+              evidence: "Evidencia empírica: Informes del Instituto Plurinacional de Estudio de Lenguas y Culturas (IPELC 2023) versus estudios de la UNESCO sobre riesgo de pérdida lingüística en modelos asimilacionistas."
+            },
+            {
+              name: "Interpretación",
+              title: "2. Interpretación Sociohistórica",
+              content: "¿Por qué surge esta diferencia? El modelo boliviano responde a las luchas de los movimientos indígenas originarios campesinos por la descolonización epistémica; mientras que el modelo transicional responde a políticas del siglo XX influenciadas por organismos crediticios que concebían el bilingüismo como costo de integración al mercado laboral nacional.",
+              evidence: "Fundamento: Art. 78 de la CPE de Bolivia y Convenio 169 de la OIT sobre Pueblos Indígenas."
+            },
+            {
+              name: "Yuxtaposición",
+              title: "3. Yuxtaposición de Componentes Clave",
+              content: "Se confrontan simultáneamente: a) Estatuto de la lengua materna (sujeto de derecho vs herramienta transitoria); b) Contenidos curriculares (saberes comunitarios propios vs contenidos universales hegemónicos); c) Formación docente (Escuelas Superiores de Formación de Maestros con enfoque plurilingüe vs docentes sin formación intercultural).",
+              evidence: "Matriz comparativa: Coexistencia del Currículo Base Plurinacional y 36 Currículos Regionalizados de las naciones indígenas reconocidas."
+            },
+            {
+              name: "Comparación",
+              title: "4. Comparación y Determinación de Invariantes",
+              content: "La variable determinante no es el presupuesto, sino la concepción del Estado: el Estado Plurinacional reconoce la pluralidad epistémica; el Estado monocultural decimonónico busca homogenizar lingüísticamente a la población.",
+              evidence: "Criterio de análisis: Grado de vitalidad etnolingüística y autoidentificación de los egresados escolares."
+            },
+            {
+              name: "Conclusión Prospectiva",
+              title: "5. Conclusión y Prospectiva Pedagógica",
+              content: "Recomendación: Fortalecer la producción de textos científicos en lenguas originarias y consolidar la pedagogía comunitaria descolonizadora con articulación intercultural recíproca.",
+              evidence: "Impacto educativo: Preservación del patrimonio inmaterial y equidad epistémica para estudiantes de pueblos originarios."
+            }
+          ],
+          question: {
+            id: "q_c6",
+            type: "single",
+            prompt: "¿Cuál es la diferencia medular entre el modelo intracultural de la Ley 070 y el bilingüismo de transición tradicional?",
+            options: [
+              "La Ley 070 concibe la lengua originaria como derecho cultural y epistemológico permanente; el bilingüismo tradicional la usa solo como puente temporal hacia la castellanización.",
+              "El modelo tradicional invierte más dinero en material educativo que la Ley 070.",
+              "La Ley 070 prohíbe el aprendizaje del castellano en todas las escuelas rurales.",
+              "No existe ninguna diferencia pedagógica relevante entre ambos modelos."
+            ],
+            correct: 0,
+            explanation: "¡Excelente análisis comparativo! La Ley 070 reconoce a las lenguas originarias como vehículos legítimos de producción de conocimiento y dignidad identitaria permanente, a diferencia de los modelos asimilacionistas que buscan extinguirlas progresivamente.",
+            incorrectFeedback: "Revisa la epistemología descolonizadora de la Ley 070: la lengua materna no es un puente transitorio, sino un eje estructurante permanente del currículo escolar."
+          }
+        },
+        {
+          id: 6,
+          title: "La Encrucijada de la Evaluación: PISA (OCDE) vs. ERCE (UNESCO)",
+          badge: "Caso Metodológico 7 · Enfoques de Evaluación Internacional",
+          context: "Una comisión técnica de Ciencias de la Educación debe asesorar a la cátedra sobre las pruebas estandarizadas: por un lado, las pruebas PISA de la OCDE miden competencias económicas estandarizadas para el mercado; por otro lado, el ERCE (UNESCO-LLECE) evalúa aprendizajes basados en currículos latinoamericanos contextualizados y factores asociados.",
+          stages: [
+            {
+              name: "Descripción",
+              title: "1. Descripción de los Modelos Evaluativos",
+              content: "PISA es diseñado por la OCDE (organismo económico internacional) para evaluar lectura, matemática y ciencias en jóvenes de 15 años bajo lógicas de ranking y capital humano. ERCE es implementado por la UNESCO para evaluar logros curriculares de 3° y 6° de primaria con encuestas socioeconómicas familiares y de convivencia escolar.",
+              evidence: "Documentos de base: Marcos conceptuales de PISA 2022 (OCDE) e Informes Regionales del Laboratorio Latinoamericano de Evaluación de la Calidad de la Educación (LLECE / UNESCO 2021)."
+            },
+            {
+              name: "Interpretación",
+              title: "2. Interpretación de Paradigmas Subyacentes",
+              content: "PISA responde al paradigma de la gobernanza global por números y rendición de cuentas (accountability); ERCE responde al paradigma del derecho universal a la educación integral y el diagnóstico de factores que reproducen la desigualdad escolar en la región.",
+              evidence: "Análisis epistemológico: ¿Medir para clasificar o evaluar para retroalimentar la justicia curricular?"
+            },
+            {
+              name: "Yuxtaposición",
+              title: "3. Yuxtaposición de Métodos y Efectos",
+              content: "PISA genera rankings mediáticos que con frecuencia estigmatizan a la escuela pública y promueven la privatización educativa. ERCE produce evidencia empírica para orientar reformas inclusivas sin generar listas competitivas humillantes entre países.",
+              evidence: "Contraste metodológico: Ítems descontextualizados vs reactivos adaptados al currículo oficial de América Latina."
+            },
+            {
+              name: "Comparación",
+              title: "4. Comparación de Validez Ecológica",
+              content: "La validez ecológica de una prueba depende de cuánto refleja la realidad cultural del evaluado. Una prueba que evalúa 'viajes en metro o calefacción central' pierde validez en contextos rurales andinos o amazónicos.",
+              evidence: "Conclusión comparativa: PISA posee alto valor para comparaciones del mercado global, pero bajo valor diagnóstico para la realidad pedagógica boliviana."
+            },
+            {
+              name: "Conclusión Prospectiva",
+              title: "5. Conclusión y Propuesta de Política Pública",
+              content: "Propuesta: Priorizar sistemas propios de evaluación formativa (Observatorio Plurinacional de la Calidad Educativa - OPCE) y participar en estudios diagnósticos multilaterales como ERCE, evitando rankings punitivos.",
+              evidence: "Lineamiento estratégico: Evaluar para transformar y emancipar, no para subordinar la escuela a intereses foráneos."
+            }
+          ],
+          question: {
+            id: "q_c7",
+            type: "single",
+            prompt: "¿Por qué un educador comparatista crítico cuestiona el uso exclusivo de rankings de PISA para definir políticas educativas?",
+            options: [
+              "Porque los rankings descontextualizan los resultados socioeconómicos e ignoran los factores curriculares e históricos específicos de cada nación.",
+              "Porque la prueba PISA solo tiene 5 preguntas y se responde en 10 minutos.",
+              "Porque en PISA no pueden participar países latinoamericanos.",
+              "Porque las matemáticas y la lectura no son importantes en la formación humana."
+            ],
+            correct: 0,
+            explanation: "¡Respuesta magistral! La Educación Comparada científica enseña que un puntaje aislado sin considerar las condiciones de vida, los recursos del aula y la historia comunitaria genera diagnósticos erróneos y recetas políticas perjudiciales.",
+            incorrectFeedback: "Considera el concepto de validez ecológica y justicia curricular: los rankings de la OCDE miden competencias de capital humano sin diagnósticos cualitativos del contexto socioeconómico."
+          }
         }
       ],
 
@@ -4361,7 +4565,24 @@
         </div>
         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="opacity: 0.9; flex-shrink: 0;"><path d="M12 2a4 4 0 0 1 4 4v2a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4z"/><rect x="4" y="10" width="16" height="12" rx="2"/><circle cx="9" cy="15" r="1"/><circle cx="15" cy="15" r="1"/></svg>
       </div>`
-    ];
+    ,
+      // Visual Caso 6: Educación Indígena y Plurilingüe
+      `<div style="background: linear-gradient(135deg, #064e3b, #047857); color: white; padding: 20px; border-radius: var(--radius-lg); text-align: center;">
+        <span style="font-size: 2.2rem; display: block; margin-bottom: 8px;">🌽 🇧🇴 📚</span>
+        <h4 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 6px;">Modelo Intracultural-Intercultural Plurilingüe</h4>
+        <p style="font-size: 0.88rem; max-width: 580px; margin: 0 auto; opacity: 0.95;">
+          Currículo Base + Currículos Regionalizados. La lengua materna originaria (Aymara, Quechua, Guaraní) como vehículo de saberes y epistemologías descolonizadoras.
+        </p>
+      </div>`,
+
+      // Visual Caso 7: Encrucijada de la Evaluación (PISA vs ERCE)
+      `<div style="background: linear-gradient(135deg, #1e3a8a, #071c32); color: white; padding: 20px; border-radius: var(--radius-lg); text-align: center;">
+        <span style="font-size: 2.2rem; display: block; margin-bottom: 8px;">⚖️ 🌐 📊</span>
+        <h4 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 6px;">PISA (OCDE) vs. ERCE (UNESCO)</h4>
+        <p style="font-size: 0.88rem; max-width: 580px; margin: 0 auto; opacity: 0.95;">
+          Contraste de epistemologías evaluativas: Estandarización de capital humano frente a evaluación diagnóstica de factores asociados y justicia curricular.
+        </p>
+      </div>`];
 
     function renderCurrentCase() {
       const c = DB.cases[AppState.activeCaseIdx];
@@ -5080,13 +5301,97 @@
       }, 250);
     }
 
-    function switchPisaTab(tabIndex) {
-      document.querySelectorAll(".pisa-tab-btn").forEach((btn, i) => {
-        btn.classList.toggle("active", i === tabIndex);
-      });
-      document.querySelectorAll(".pisa-pane").forEach((pane, i) => {
-        pane.classList.toggle("active", i === tabIndex);
-      });
+    function switchPisaTab(tabNum) {
+      for (let n = 1; n <= 4; n++) {
+        const btn = document.getElementById("btn-pisa-tab-" + n);
+        const pane = document.getElementById("pisa-pane-" + n);
+        if (btn) btn.classList.toggle("active", n === tabNum);
+        if (pane) {
+          pane.classList.toggle("active", n === tabNum);
+          pane.style.display = (n === tabNum) ? "block" : "none";
+        }
+      }
+    }
+
+    function handlePisaInput(el) {
+      var words = el.value.trim().split(/\s+/).filter(function(w) { return w.length > 0; }).length;
+      var counter = document.getElementById("pisa-counter-words");
+      if (counter) counter.textContent = "Contador: " + words + " palabras (mínimo 15 palabras)";
+    }
+
+    function checkPisaReflection() {
+      var textarea = document.getElementById("pisa-student-text");
+      var feedback = document.getElementById("pisa-debate-feedback");
+      var statusText = document.getElementById("pisa-debate-status");
+      var text = textarea ? textarea.value.trim() : "";
+      var words = text ? text.split(/\s+/).filter(function(w) { return w.length > 0; }).length : 0;
+
+      if (words < 15) {
+        alert("Por favor redacta tu dictamen comparativo con al menos 15 palabras antes de comprobar.");
+        return;
+      }
+
+      var lower = text.toLowerCase();
+      var keywords = ["unesco", "erce", "soberania", "soberanía", "070", "contexto", "equidad", "ranking", "pisa", "llece", "comunitario", "descolonizacion", "descolonización"];
+      var matches = keywords.filter(function(k) { return lower.indexOf(k) >= 0; });
+      var isApproved = words >= 15 && matches.length >= 1;
+
+      AppState.pisaReflection = { text: text, words: words, approved: isApproved, date: new Date().toLocaleString("es-BO") };
+      saveState();
+
+      if (statusText) statusText.textContent = isApproved ? "✅ Dictamen Fundamentado" : "⚠️ Por Afinar";
+      if (feedback) {
+        feedback.className = "feedback-box " + (isApproved ? "correct" : "incorrect");
+        feedback.style.display = "block";
+        var titleMsg = isApproved ? "¡Excelente Argumentación Comparada!" : "Argumento Incompleto o Descontextualizado";
+        var explMsg = isApproved 
+          ? ("Has fundamentado tu postura con " + words + " palabras e integraste conceptos epistemológicos clave (" + matches.join(", ") + "). Evidenciaste comprensión de la soberanía educativa y la diferencia entre rankings de la OCDE y diagnósticos contextualizados de la UNESCO.")
+          : ("Tu análisis tiene " + words + " palabras pero le falta vincular términos clave de la cátedra (ej: Ley 070, UNESCO, ERCE, equidad, descolonización, soberanía curricular). Complementa tu reflexión para profundizar el análisis crítico.");
+        
+        feedback.innerHTML = '<div class="feedback-title">' +
+          '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> ' +
+          titleMsg + '</div>' +
+          '<p class="feedback-explanation">' + explMsg + '</p>' +
+          '<div style="background: white; border: 1px solid var(--border-color); border-radius: 8px; padding: 12px; margin: 12px 0;">' +
+            '<strong style="color: var(--uagrm-blue); font-size: 0.85rem;">Dictamen Modelo de la Cátedra EDU-113:</strong>' +
+            '<p style="font-size: 0.85rem; color: var(--text-main); margin-top: 4px; line-height: 1.5;">' +
+              'La decisión de priorizar el ERCE (UNESCO-OREALC) garantiza coherencia con la Ley 070, ya que evalúa competencias curriculares contextualizadas en la realidad latinoamericana y analiza con rigor los factores socioeconómicos asociados, evitando los rankings comerciales punitivos de la OCDE.' +
+            '</p>' +
+          '</div>' +
+          '<button class="btn-download-answer" onclick="downloadPisaReflection()">' +
+            '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>' +
+            ' Descargar mi Análisis PISA (.TXT)' +
+          '</button>';
+      }
+    }
+
+    function downloadPisaReflection() {
+      var ref = AppState.pisaReflection;
+      if (!ref || !ref.text) { alert("Primero debes redactar y comprobar tu dictamen."); return; }
+      var now = new Date().toLocaleString("es-BO");
+      var content = "========================================================\r\n" +
+        "EDUCOMPARA · UAGRM - FACULTAD DE HUMANIDADES\r\n" +
+        "CARRERA DE CIENCIAS DE LA EDUCACIÓN · EDU-113\r\n" +
+        "DICTAMEN DEL DEBATE: SOBERANÍA CURRICULAR BOLIVIA (LEY 070) VS. PISA\r\n" +
+        "Fecha: " + now + "\r\n" +
+        "========================================================\r\n\r\n" +
+        "Pregunta Orientadora: ¿Por qué Bolivia y Cuba priorizan evaluaciones regionales de la UNESCO frente a PISA de la OCDE?\r\n\r\n" +
+        "[DICTAMEN REDACTADO POR EL ESTUDIANTE (" + ref.words + " palabras)]:\r\n" +
+        ref.text + "\r\n\r\n" +
+        "Dictamen de la Cátedra: La decisión de priorizar el ERCE (UNESCO-OREALC) garantiza coherencia con la Ley 070, evaluando factores socioeconómicos asociados sin mercantilizar la educación.\r\n" +
+        "\r\n========================================================\r\n";
+
+      var blob = new Blob([content], { type: "text/plain;charset=utf-8" });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement("a");
+      a.href = url;
+      a.download = "EduCompara_Dictamen_Debate_PISA.txt";
+      document.body.appendChild(a);
+      a.click();
+      setTimeout(function() {
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      }, 2000);
     }
 
     function downloadSingleAnswer(id, kind) {
@@ -5318,6 +5623,7 @@
     }
 
     function runCoverageLab() {
+      if (!document.getElementById('input-pop')) return;
       const pop = parseFloat(document.getElementById("input-pop").value) || 1000;
       const tot = parseFloat(document.getElementById("input-total").value) || 0;
       const net = parseFloat(document.getElementById("input-net").value) || 0;
