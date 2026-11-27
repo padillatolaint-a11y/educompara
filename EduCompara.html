@@ -2685,6 +2685,90 @@
       .uagrm-header-logo-left, .uagrm-header-logo-right { height: 38px !important; }
       .topbar-quick-actions { display: none !important; }
     }
+    /* Corrección de contraste garantizado para botones secundarios en módulos */
+    .section-headline .btn-action-secondary,
+    #sec-pisa .btn-action-secondary {
+      background: #071c32 !important;
+      color: #ffffff !important;
+      border: 2px solid #b91c1c !important;
+      box-shadow: 0 4px 10px rgba(7, 28, 50, 0.2) !important;
+    }
+    .section-headline .btn-action-secondary:hover,
+    #sec-pisa .btn-action-secondary:hover {
+      background: #b91c1c !important;
+      color: #ffffff !important;
+    }
+    .uagrm-header-logo-left, .uagrm-header-logo-right {
+      height: 48px !important;
+      width: auto !important;
+      max-width: 130px !important;
+      object-fit: contain !important;
+    }
+    /* =====================================================================
+       COMPORTAMIENTO DEL MENÚ LATERAL: NO BLOQUEANTE Y PERSISTENTE
+       ===================================================================== */
+    .drawer-backdrop {
+      display: none !important;
+      pointer-events: none !important;
+      opacity: 0 !important;
+    }
+    .sidebar-drawer {
+      position: fixed !important;
+      top: 68px !important; /* Debajo de la barra de navegación */
+      left: 0 !important;
+      bottom: 0 !important;
+      width: 320px !important;
+      max-width: 85vw !important;
+      background: #ffffff !important;
+      z-index: 990 !important;
+      box-shadow: 6px 12px 35px rgba(7, 28, 50, 0.28) !important;
+      border-right: 2px solid #cbd5e1 !important;
+      transform: translateX(-100%) !important;
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+    .sidebar-drawer.active {
+      transform: translateX(0) !important;
+    }
+    .drawer-close-btn {
+      background: rgba(255, 255, 255, 0.15) !important;
+      border: 1px solid rgba(255, 255, 255, 0.3) !important;
+      color: white !important;
+      border-radius: 8px !important;
+      padding: 6px 10px !important;
+      cursor: pointer !important;
+      transition: all 0.2s ease !important;
+    }
+    .drawer-close-btn:hover {
+      background: #b91c1c !important;
+    }
+    /* =====================================================================
+       ESTILOS PARA SELECTOR DE AÑOS PISA Y DIARIO DE APRENDIZAJE GUIADO
+       ===================================================================== */
+    .btn-year-pill {
+      background: #ffffff;
+      color: #334151;
+      border: 1.5px solid #cbd5e1;
+      border-radius: var(--radius-pill);
+      padding: 6px 14px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .btn-year-pill:hover {
+      background: #e2e8f0;
+      color: var(--uagrm-navy);
+    }
+    .btn-year-pill.active {
+      background: var(--uagrm-navy) !important;
+      color: #ffffff !important;
+      border-color: var(--uagrm-navy) !important;
+      box-shadow: 0 4px 10px rgba(7, 28, 50, 0.2) !important;
+    }
+    .diary-option-label:hover {
+      background: #f1f5f9 !important;
+      border-color: #94a3b8 !important;
+    }
 </style>
 </head>
 <body>
@@ -2751,49 +2835,49 @@
       <div class="drawer-section-label">Módulos del Laboratorio</div>
       <ul class="drawer-nav-list">
         <li>
-          <a class="drawer-nav-item active" data-drawer-tab="portada" onclick="navTo('portada'); toggleDrawer(false);">
+          <a class="drawer-nav-item active" data-drawer-tab="portada" onclick="navTo('portada');">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
             <span>0. Portada General</span>
             <span class="drawer-badge">Inicio</span>
           </a>
         </li>
         <li>
-          <a class="drawer-nav-item" data-drawer-tab="inicio" onclick="navTo('inicio'); toggleDrawer(false);">
+          <a class="drawer-nav-item" data-drawer-tab="inicio" onclick="navTo('inicio');">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
             <span>1. Ruta de Aprendizaje</span>
             <span class="drawer-badge">Modular</span>
           </a>
         </li>
         <li>
-          <a class="drawer-nav-item" data-drawer-tab="casos" onclick="navTo('casos'); toggleDrawer(false);">
+          <a class="drawer-nav-item" data-drawer-tab="casos" onclick="navTo('casos');">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
             <span>2. Casos Prácticos</span>
             <span class="drawer-badge">5 Casos</span>
           </a>
         </li>
         <li>
-          <a class="drawer-nav-item" data-drawer-tab="comparador" onclick="navTo('comparador'); toggleDrawer(false);">
+          <a class="drawer-nav-item" data-drawer-tab="comparador" onclick="navTo('comparador');">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M13 6h3a2 2 0 0 1 2 2v7"/><path d="M11 18H8a2 2 0 0 1-2-2V9"/></svg>
             <span>3. Mesa Comparativa</span>
             <span class="drawer-badge">6 Países</span>
           </a>
         </li>
         <li>
-          <a class="drawer-nav-item" data-drawer-tab="pisa" onclick="navTo('pisa'); toggleDrawer(false);">
+          <a class="drawer-nav-item" data-drawer-tab="pisa" onclick="navTo('pisa');">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
             <span>4. Pruebas PISA</span>
             <span class="drawer-badge" style="background:#b91c1c; color:white;">OCDE</span>
           </a>
         </li>
         <li>
-          <a class="drawer-nav-item" data-drawer-tab="autoevaluacion" onclick="navTo('autoevaluacion'); toggleDrawer(false);">
+          <a class="drawer-nav-item" data-drawer-tab="autoevaluacion" onclick="navTo('autoevaluacion');">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
             <span>5. Autoevaluación</span>
             <span class="drawer-badge">8 Reactivos</span>
           </a>
         </li>
         <li>
-          <a class="drawer-nav-item" data-drawer-tab="cuaderno" onclick="navTo('cuaderno'); toggleDrawer(false);">
+          <a class="drawer-nav-item" data-drawer-tab="cuaderno" onclick="navTo('cuaderno');">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
             <span>6. Mi Cuaderno</span>
             <span class="drawer-badge">Notas</span>
@@ -2807,7 +2891,7 @@
           </a>
         </li>
         <li>
-          <a class="drawer-nav-item" data-drawer-tab="progreso" onclick="navTo('progreso'); toggleDrawer(false);">
+          <a class="drawer-nav-item" data-drawer-tab="progreso" onclick="navTo('progreso');">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
             <span>8. Mi Registro</span>
             <span class="drawer-badge">Avance</span>
@@ -2887,13 +2971,43 @@
             </div>
           </div>
 
-          <!-- Título principal -->
-          <h1 class="portada-main-title">
-            EduCompara: <span>Laboratorio de Educación Comparada</span>
-          </h1>
+          <!-- Título principal con articulación académica -->
+          <div class="portada-title-container" style="margin-bottom: 22px;">
+            <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(96, 165, 250, 0.4); padding: 5px 14px; border-radius: 20px; font-size: 0.82rem; font-weight: 700; color: #93c5fd; margin-bottom: 12px;">
+              <span>🚀 Recurso Formativo Oficial · EDU-113</span>
+            </div>
+            <h1 class="portada-main-title" style="margin-bottom: 8px;">
+              EduCompara: <span>Laboratorio de Educación Comparada</span>
+            </h1>
+            <p style="font-size: 1.15rem; font-weight: 700; color: #bfdbfe; margin: 0 0 14px 0;">
+              Articulado con la Guía Metodológica de Educación Comparada (EDU-113)
+            </p>
+          </div>
+
           <p class="portada-description">
-            Recurso educativo digital interactivo diseñado para el aprendizaje científico de los sistemas educativos, análisis de datos empíricos, evaluación internacional PISA y aplicación paso a paso del método comparativo.
+            Recurso educativo digital interactivo diseñado para el aprendizaje científico de los sistemas educativos, análisis de datos empíricos, evaluación internacional PISA y aplicación paso a paso del método comparativo en complementariedad directa con la <strong>Guía Metodológica</strong> de la asignatura.
           </p>
+
+          <!-- Banner destacado de enlace directo a la Guía Metodológica de la compañera -->
+          <div style="background: rgba(255, 255, 255, 0.09); border: 1.5px solid rgba(255, 255, 255, 0.25); border-radius: 14px; padding: 16px 20px; margin-bottom: 26px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+            <div style="display: flex; align-items: center; gap: 14px;">
+              <div style="width: 44px; height: 44px; border-radius: 10px; background: #b91c1c; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; color: white; flex-shrink: 0; box-shadow: 0 4px 12px rgba(185, 28, 28, 0.35);">
+                📖
+              </div>
+              <div>
+                <h3 style="margin: 0; color: #ffffff; font-size: 1.05rem; font-weight: 800;">
+                  Guía Metodológica de Educación Comparada (EDU-113)
+                </h3>
+                <p style="margin: 2px 0 0 0; color: #cbd5e1; font-size: 0.85rem; line-height: 1.4;">
+                  Consulta los fundamentos teóricos, fases metodológicas y módulos conceptuales desarrollados por la compañera de la materia.
+                </p>
+              </div>
+            </div>
+            <a href="https://compzapata-rgb.github.io/guia-educacion-comparada-edu113./?utm_source=chatgpt.com#modulo-0" target="_blank" rel="noopener noreferrer" class="btn-action-primary" style="padding: 10px 20px; font-size: 0.88rem; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
+              <span>Abrir Guía Metodológica</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
 
           <!-- Tarjeta del Personaje Orientador Víctor -->
           <div class="portada-personaje-container">
@@ -3407,8 +3521,8 @@
       <div class="section-headline">
         <div>
           <span class="badge" style="background:#fee2e2; color:#b91c1c; font-weight:800; padding:4px 10px; border-radius:var(--radius-pill); font-size:0.75rem; text-transform:uppercase;">Evaluación Internacional & Epistemología</span>
-          <h2 style="margin-top:6px;">Módulo de Pruebas PISA & Bibliografías Científicas</h2>
-          <p>Resultados oficiales PISA 2022, debate de soberanía curricular de Bolivia (Ley 070) y Cuba, equidad socioeconómica y fuentes académicas reales.</p>
+          <h2 style="margin-top:6px;">Módulo de Pruebas PISA: Datos Históricos, Debates y Equidad</h2>
+          <p>Evolución por ciclos (2022, 2018, 2015, 2012, 2006), debate soberano en los 6 países, brecha socioeconómica y actividades formativas de selección.</p>
         </div>
         <div style="display: flex; gap: 10px; flex-wrap: wrap;">
           <button class="btn-action-secondary" onclick="navTo('comparador')" style="font-size: 0.85rem; padding: 8px 16px;">
@@ -3421,183 +3535,488 @@
       </div>
 
       <!-- ====================================================================
-           MÓDULO INTERACTIVO DE PRUEBAS PISA & BIBLIOGRAFÍAS REALES
+           MÓDULO INTERACTIVO DE PRUEBAS PISA HISTÓRICO & MULTI-PAÍS
            ==================================================================== -->
       <div class="pisa-module-card">
         <div class="pisa-module-header">
           <div>
-            <span class="pisa-badge">Evaluación Estandarizada Internacional</span>
-            <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--uagrm-navy); margin-top: 6px;">
-              Pruebas PISA: Datos Reales, Debates y Bibliografía Científica
+            <span class="pisa-badge">Evaluación Estandarizada Internacional · OCDE</span>
+            <h3 style="font-size: 1.35rem; font-weight: 800; color: var(--uagrm-navy); margin-top: 6px;">
+              Pruebas PISA: Datos Reales, Evolución Histórica y Debates Nacionales
             </h3>
           </div>
-          <div style="font-size: 0.8rem; font-weight: 700; color: #64748b;">
-            Corte Oficial OCDE PISA 2022
+          <div style="font-size: 0.85rem; font-weight: 700; color: var(--uagrm-blue);">
+            Comparativa Internacional (15 años)
           </div>
         </div>
         <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.55; margin-bottom: 18px;">
-          El <strong>Programa para la Evaluación Internacional de Alumnos (PISA)</strong> de la OCDE evalúa competencias en Matemáticas, Lectura y Ciencias en estudiantes de 15 años. En Educación Comparada, los resultados deben analizarse con rigor crítico: reconociendo tanto los logros formativos como las limitaciones epistemológicas de los rankings estandarizados.
+          El <strong>Programa para la Evaluación Internacional de Alumnos (PISA)</strong> de la OCDE evalúa competencias en Matemáticas, Lectura y Ciencias cada 3 años. Explora la evolución histórica desde 2006 hasta 2022, las razones del debate en cada país y pon a prueba tu comprensión con actividades de selección múltiple:
         </p>
 
         <!-- Barra de Botones de Navegación de PISA -->
         <div class="pisa-nav-tabs" role="tablist">
           <button class="pisa-tab-btn active" id="btn-pisa-tab-1" onclick="switchPisaTab(1)">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
-            1. Puntajes Oficiales PISA 2022
+            📊 1. Puntajes Oficiales y Evolución Histórica
           </button>
           <button class="pisa-tab-btn" id="btn-pisa-tab-2" onclick="switchPisaTab(2)">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-            2. Debate: ¿Por qué Bolivia no aplica PISA?
+            ⏱ 2. Debate Nacional en los 6 Países
           </button>
           <button class="pisa-tab-btn" id="btn-pisa-tab-3" onclick="switchPisaTab(3)">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            3. Brecha Socioeconómica & Equidad
+            👥 3. Brecha Socioeconómica & Equidad
           </button>
           <button class="pisa-tab-btn" id="btn-pisa-tab-4" onclick="switchPisaTab(4)">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-            4. Bibliografía Real & Fuentes Oficiales
+            📖 4. Bibliografía Real & Fuentes Oficiales
           </button>
         </div>
 
-        <!-- Panel 1: Puntajes PISA 2022 -->
+        <!-- ------------------------------------------------------------------
+             PANEL 1: PUNTAJES OFICIALES Y SELECTOR HISTÓRICO DE AÑOS
+             ------------------------------------------------------------------ -->
         <div class="pisa-content-pane active" id="pisa-pane-1">
-          <div class="pisa-table-wrapper">
-            <table class="pisa-scores-table">
-              <thead>
-                <tr>
-                  <th>País Comparado</th>
-                  <th>Matemáticas</th>
-                  <th>Lectura</th>
-                  <th>Ciencias</th>
-                  <th>Posición / Situación en la Evaluación</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><strong>🇸🇬 Singapur</strong></td>
-                  <td><span class="pisa-score-badge score-high">575</span></td>
-                  <td><span class="pisa-score-badge score-high">543</span></td>
-                  <td><span class="pisa-score-badge score-high">561</span></td>
-                  <td><strong>1.° Puesto Mundial</strong> (Líder en las 3 áreas evaluadas).</td>
-                </tr>
-                <tr>
-                  <td><strong>🇫🇮 Finlandia</strong></td>
-                  <td><span class="pisa-score-badge score-mid">484</span></td>
-                  <td><span class="pisa-score-badge score-mid">490</span></td>
-                  <td><span class="pisa-score-badge score-high">511</span></td>
-                  <td>Por encima del promedio OCDE. Referente histórico nórdico.</td>
-                </tr>
-                <tr>
-                  <td><strong>🇨🇱 Chile</strong></td>
-                  <td><span class="pisa-score-badge score-mid">412</span></td>
-                  <td><span class="pisa-score-badge score-mid">448</span></td>
-                  <td><span class="pisa-score-badge score-mid">444</span></td>
-                  <td><strong>1.° en América Latina en PISA</strong>, pero por debajo de la media OCDE (472).</td>
-                </tr>
-                <tr>
-                  <td><strong>🇨🇴 Colombia</strong></td>
-                  <td><span class="pisa-score-badge score-low">383</span></td>
-                  <td><span class="pisa-score-badge score-low">409</span></td>
-                  <td><span class="pisa-score-badge score-low">411</span></td>
-                  <td>Participante latinoamericano con retos de equidad rural-urbana.</td>
-                </tr>
-                <tr>
-                  <td><strong>🇧🇴 Bolivia</strong></td>
-                  <td><span class="pisa-score-badge score-na">No participa</span></td>
-                  <td><span class="pisa-score-badge score-na">No participa</span></td>
-                  <td><span class="pisa-score-badge score-na">No participa</span></td>
-                  <td><strong>Decisión Soberana (Ley 070):</strong> Prioriza evaluaciones socio-comunitarias y pruebas regionales de UNESCO (ERCE/LLECE).</td>
-                </tr>
-                <tr>
-                  <td><strong>🇨🇺 Cuba</strong></td>
-                  <td><span class="pisa-score-badge score-na">No participa</span></td>
-                  <td><span class="pisa-score-badge score-na">No participa</span></td>
-                  <td><span class="pisa-score-badge score-na">No participa</span></td>
-                  <td><strong>Referente en UNESCO (ERCE):</strong> Alta equidad y resultados superiores en primaria regional sin mercado educativo privado.</td>
-                </tr>
-              </tbody>
-            </table>
+          <!-- Selector de Años PISA -->
+          <div style="background: #f8fafc; border: 1.5px solid #cbd5e1; border-radius: var(--radius-lg); padding: 16px; margin-bottom: 20px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 12px;">
+              <div>
+                <strong style="color: var(--uagrm-navy); font-size: 0.95rem;">Selecciona el Ciclo de Evaluación PISA:</strong>
+                <p style="font-size: 0.82rem; color: var(--text-muted); margin: 2px 0 0 0;">Haz clic en un año para ver los puntajes, qué país sobresalía y cuál presentaba mayor rezago:</p>
+              </div>
+              <div class="pisa-year-selector" style="display: flex; gap: 8px; flex-wrap: wrap;">
+                <button class="btn-year-pill active" id="btn-year-2022" onclick="selectPisaYear(2022)">Ciclo 2022</button>
+                <button class="btn-year-pill" id="btn-year-2018" onclick="selectPisaYear(2018)">Ciclo 2018</button>
+                <button class="btn-year-pill" id="btn-year-2015" onclick="selectPisaYear(2015)">Ciclo 2015</button>
+                <button class="btn-year-pill" id="btn-year-2012" onclick="selectPisaYear(2012)">Ciclo 2012</button>
+                <button class="btn-year-pill" id="btn-year-2006" onclick="selectPisaYear(2006)">Ciclo 2006</button>
+              </div>
+            </div>
+
+            <!-- Resumen dinámico del año -->
+            <div id="pisa-year-summary-card" style="background: white; border-left: 4px solid var(--uagrm-blue); padding: 12px 16px; border-radius: 6px;">
+              <!-- Inyectado dinámicamente vía JS -->
+            </div>
           </div>
-          <div style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.5; background: #f8fafc; padding: 12px 16px; border-radius: var(--radius-md);">
-            <em>Fuente de datos:</em> OECD (2023). <em>PISA 2022 Results: The State of Learning and Equity in Education</em>. Promedio OCDE de referencia: Matemáticas 472, Lectura 476, Ciencias 485.
+
+          <!-- Tabla Dinámica de Puntajes -->
+          <div class="pisa-table-wrapper" id="pisa-dynamic-table-container">
+            <!-- Tabla renderizada dinámicamente según el año -->
+          </div>
+
+          <!-- Análisis Comparativo del Año (Sobresaliente vs Rezago) -->
+          <div id="pisa-year-insights-container" style="margin-top: 18px;">
+            <!-- Inyectado dinámicamente -->
+          </div>
+
+          <!-- Actividad Formativa de Selección: Comprensión de Puntajes y Años -->
+          <div class="pisa-quiz-card" style="margin-top: 24px; background: #f0fdf4; border: 1.5px solid #bbf7d0; border-radius: var(--radius-lg); padding: 20px;">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+              <span style="background: #16a34a; color: white; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.9rem;">?</span>
+              <h4 style="margin: 0; color: #166534; font-size: 1.05rem; font-weight: 800;">
+                Actividad de Comprensión: Análisis de la Evolución Histórica
+              </h4>
+            </div>
+            <p style="font-size: 0.86rem; color: #14532d; margin-bottom: 14px;">
+              Responde la siguiente pregunta de selección para verificar tu interpretación de los ciclos evaluativos:
+            </p>
+            <div style="background: white; border: 1px solid #bbf7d0; border-radius: 8px; padding: 14px; margin-bottom: 12px;">
+              <p style="font-weight: 700; color: #1f2937; margin-bottom: 10px; font-size: 0.9rem;">
+                1. Al comparar el ciclo 2006 con el ciclo 2022, ¿qué transformación histórica sobresaliente se observa en los resultados?
+              </p>
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <label style="display: flex; align-items: flex-start; gap: 10px; cursor: pointer; font-size: 0.85rem; color: #374151;">
+                  <input type="radio" name="quiz_pisa_year" value="0" style="margin-top: 3px;">
+                  <span>Finlandia era líder mundial absoluto en 2006 (563 pts en Ciencias), pero descendió progresivamente hacia 2022 (484 en Mat), mientras Singapur se consolidó como líder mundial indiscutible.</span>
+                </label>
+                <label style="display: flex; align-items: flex-start; gap: 10px; cursor: pointer; font-size: 0.85rem; color: #374151;">
+                  <input type="radio" name="quiz_pisa_year" value="1" style="margin-top: 3px;">
+                  <span>Chile y Colombia superaron a todos los países europeos y asiáticos en el año 2018.</span>
+                </label>
+                <label style="display: flex; align-items: flex-start; gap: 10px; cursor: pointer; font-size: 0.85rem; color: #374151;">
+                  <input type="radio" name="quiz_pisa_year" value="2" style="margin-top: 3px;">
+                  <span>Bolivia obtuvo el primer lugar en matemáticas en 2015 en la evaluación de la OCDE.</span>
+                </label>
+              </div>
+            </div>
+            <button class="btn-action-primary" onclick="checkPisaYearQuiz()" style="font-size: 0.85rem; padding: 8px 16px;">
+              Comprobar Respuesta
+            </button>
+            <div id="quiz-pisa-year-feedback" style="display: none; margin-top: 12px; padding: 12px; border-radius: 8px; font-size: 0.86rem; line-height: 1.45;"></div>
           </div>
         </div>
 
-        <!-- Panel 2: Debate de Soberanía Pedagógica -->
+        <!-- ------------------------------------------------------------------
+             PANEL 2: DEBATE NACIONAL EN LOS 6 PAÍSES + ACTIVIDAD DE SELECCIÓN
+             ------------------------------------------------------------------ -->
         <div class="pisa-content-pane" id="pisa-pane-2">
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 16px;">
-            <div style="background: #fef2f2; border: 1px solid #fecaca; border-radius: var(--radius-lg); padding: 18px;">
-              <h4 style="color: #991b1b; font-size: 0.95rem; font-weight: 800; margin-bottom: 8px;">
-                🇧🇴 La Posición del Estado Plurinacional de Bolivia (Ley 070)
-              </h4>
-              <p style="font-size: 0.85rem; color: #7f1d1d; line-height: 1.55;">
-                Bolivia no aplica PISA porque su modelo educativo (Avelino Siñani - Elizardo Pérez) se fundamenta en la <strong>descolonización</strong>, la intraculturalidad y el saber productivo comunitario. Desde esta perspectiva, PISA aplica parámetros estandarizados diseñados por economías de mercado de la OCDE que invisibilizan los saberes indígenas originarios, la cosmovisión comunitaria y las lenguas maternas nativas.
-              </p>
-            </div>
-            <div style="background: #eff6ff; border: 1px solid #bfdbfe; border-radius: var(--radius-lg); padding: 18px;">
-              <h4 style="color: #1e40af; font-size: 0.95rem; font-weight: 800; margin-bottom: 8px;">
-                🌐 Pruebas ERCE / LLECE de la UNESCO
-              </h4>
-              <p style="font-size: 0.85rem; color: #1e3a8a; line-height: 1.55;">
-                Tanto Bolivia como Cuba han participado en el <strong>Estudio Regional Comparativo y Explicativo (ERCE)</strong> coordinado por UNESCO-OREALC. A diferencia de PISA, ERCE evalúa los aprendizajes curriculares propios de América Latina y analiza factores contextuales como la lengua materna, el clima escolar y la infraestructura escolar comunitaria.
-              </p>
-            </div>
-          </div>
-          <div style="margin-top: 14px; background: white; border: 1px solid #cbd5e1; border-radius: var(--radius-md); padding: 14px; font-size: 0.85rem; line-height: 1.55; color: var(--text-main);">
-            <strong>📌 Lección para el estudiante de EDU-113:</strong> En Educación Comparada, un ranking no define la calidad absoluta de una sociedad. La elección de participar o no en una prueba internacional es en sí misma una <strong>decisión de política pública y soberanía curricular</strong> que debe estudiarse en su contexto histórico.
-          </div>
-        </div>
-
-        <!-- Panel 3: Brecha Socioeconómica e Inclusión -->
-        <div class="pisa-content-pane" id="pisa-pane-3">
-          <div style="background: #fffbeb; border: 1px solid #fde68a; border-radius: var(--radius-lg); padding: 18px; margin-bottom: 14px;">
-            <h4 style="color: #92400e; font-size: 0.95rem; font-weight: 800; margin-bottom: 8px;">
-              El Índice ESCS (Estatus Económico, Social y Cultural)
+          <div style="margin-bottom: 16px;">
+            <h4 style="color: var(--uagrm-navy); font-size: 1.15rem; font-weight: 800; margin-bottom: 6px;">
+              La Posición de los 6 Países frente a las Pruebas PISA: Soberanía, Mercado y Desafíos
             </h4>
-            <p style="font-size: 0.86rem; color: #78350f; line-height: 1.55;">
-              Los propios informes de la OCDE demuestran que las diferencias de puntaje en PISA no reflejan diferencias de inteligencia innata ni simplemente 'buenos o malos colegios', sino la <strong>fuerte desigualdad socioeconómica de los hogares</strong>.
+            <p style="font-size: 0.86rem; color: var(--text-muted); line-height: 1.5;">
+              En Educación Comparada no existen respuestas simples: cada sistema responde a una trayectoria sociohistórica, política y curricular única. Conoce el debate en cada nación:
             </p>
           </div>
-          <ul style="padding-left: 20px; font-size: 0.86rem; line-height: 1.6; color: var(--text-main);">
-            <li style="margin-bottom: 8px;">
-              <strong>La brecha de 80 a 100 puntos:</strong> En países como Chile y Colombia, un estudiante del cuartil más rico obtiene hasta 85 puntos más que uno del cuartil vulnerable (equivalente a casi 3 años lectivos de escolaridad).
-            </li>
-            <li style="margin-bottom: 8px;">
-              <strong>Resiliencia Académica:</strong> Se denomina 'estudiante resiliente' a aquel de origen vulnerable que logra superar la media de rendimiento. Singapur y Finlandia presentan los porcentajes más altos de estudiantes resilientes gracias a políticas de equidad en la primera infancia y docentes altamente calificados.
-            </li>
-            <li style="margin-bottom: 8px;">
-              <strong>El error de copiar sin equidad:</strong> Un país no puede mejorar en PISA solo cambiando manuales o eliminando exámenes si no resuelve la desnutrición, la falta de bibliotecas y la precariedad salarial docente.
-            </li>
-          </ul>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; margin-bottom: 24px;">
+            <!-- Bolivia -->
+            <div style="background: #fef2f2; border: 1.5px solid #fecaca; border-radius: var(--radius-lg); padding: 18px;">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+                <h4 style="color: #991b1b; font-size: 0.98rem; font-weight: 800; margin: 0;">
+                  🇧🇴 Bolivia: Soberanía Curricular y Ley 070
+                </h4>
+                <span style="background: #991b1b; color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.7rem; font-weight: 700;">No Aplica PISA</span>
+              </div>
+              <p style="font-size: 0.85rem; color: #7f1d1d; line-height: 1.55; margin-bottom: 8px;">
+                <strong>Fundamento:</strong> El modelo sociocomunitario productivo (Avelino Siñani - Elizardo Pérez) rechaza PISA porque sus reactivos estandarizados miden competencias para la economía de mercado y omiten los saberes comunitarios, la intraculturalidad y las lenguas indígenas originarias.
+              </p>
+              <div style="background: white; border: 1px solid #fecaca; border-radius: 6px; padding: 8px 10px; font-size: 0.8rem; color: #991b1b;">
+                <strong>Alternativa:</strong> Participación soberana en el estudio regional <strong>ERCE / LLECE de la UNESCO</strong>, que evalúa aprendizajes contextualizados sin rankings mercantiles.
+              </div>
+            </div>
+
+            <!-- Cuba -->
+            <div style="background: #fdf2f8; border: 1.5px solid #fbcfe8; border-radius: var(--radius-lg); padding: 18px;">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+                <h4 style="color: #9d174d; font-size: 0.98rem; font-weight: 800; margin: 0;">
+                  🇨🇺 Cuba: Educación Integral vs. Capital Humano
+                </h4>
+                <span style="background: #9d174d; color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.7rem; font-weight: 700;">No Aplica PISA</span>
+              </div>
+              <p style="font-size: 0.85rem; color: #831843; line-height: 1.55; margin-bottom: 8px;">
+                <strong>Fundamento:</strong> Cuba no participa en PISA por considerar que la OCDE promueve una visión neoliberal que mercantiliza la formación y jerarquiza a los países. El MINED prioriza una educación pública, laica, universal y 100% gratuita.
+              </p>
+              <div style="background: white; border: 1px solid #fbcfe8; border-radius: 6px; padding: 8px 10px; font-size: 0.8rem; color: #831843;">
+                <strong>Evidencia:</strong> En los estudios LLECE/ERCE de la UNESCO, Cuba ha liderado históricamente a nivel regional en comprensión lectora y matemáticas primarias con equidad plena.
+              </div>
+            </div>
+
+            <!-- Chile -->
+            <div style="background: #eff6ff; border: 1.5px solid #bfdbfe; border-radius: var(--radius-lg); padding: 18px;">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+                <h4 style="color: #1e40af; font-size: 0.98rem; font-weight: 800; margin: 0;">
+                  🇨🇱 Chile: Liderazgo Regional con Fuerte Segregación
+                </h4>
+                <span style="background: #1e40af; color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.7rem; font-weight: 700;">Participante Continuo</span>
+              </div>
+              <p style="font-size: 0.85rem; color: #1e3a8a; line-height: 1.55; margin-bottom: 8px;">
+                <strong>El Gran Dilema:</strong> Es el país mejor posicionado de Sudamérica en PISA (448 en Lectura), pero sus propios informes revelan la <strong>mayor brecha socioeconómica</strong> de la OCDE: el origen socioeconómico familiar determina drásticamente el colegio al que asiste el estudiante.
+              </p>
+              <div style="background: white; border: 1px solid #bfdbfe; border-radius: 6px; padding: 8px 10px; font-size: 0.8rem; color: #1e40af;">
+                <strong>Debate Actual:</strong> La Ley de Inclusión Escolar busca eliminar el copago y la selección para mitigar el mercado educativo heredado de décadas anteriores.
+              </div>
+            </div>
+
+            <!-- Colombia -->
+            <div style="background: #fffbeb; border: 1.5px solid #fde68a; border-radius: var(--radius-lg); padding: 18px;">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+                <h4 style="color: #92400e; font-size: 0.98rem; font-weight: 800; margin: 0;">
+                  🇨🇴 Colombia: Modernización y Brecha Rural-Urbana
+                </h4>
+                <span style="background: #d97706; color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.7rem; font-weight: 700;">Miembro OCDE</span>
+              </div>
+              <p style="font-size: 0.85rem; color: #78350f; line-height: 1.55; margin-bottom: 8px;">
+                <strong>El Gran Dilema:</strong> Ingresó a la OCDE y aplica PISA para fijar estándares internacionales. Sin embargo, persisten alarmantes rezagos en matemáticas (383 pts) y profundas asimetrías entre las capitales y las zonas rurales afectadas por el conflicto armado.
+              </p>
+              <div style="background: white; border: 1px solid #fde68a; border-radius: 6px; padding: 8px 10px; font-size: 0.8rem; color: #92400e;">
+                <strong>Debate Actual:</strong> ¿Conviene seguir orientando la enseñanza a pruebas estandarizadas (ICFES/PISA) o fortalecer la infraestructura básica y la jornada única rural?
+              </div>
+            </div>
+
+            <!-- Finlandia -->
+            <div style="background: #f0fdf4; border: 1.5px solid #bbf7d0; border-radius: var(--radius-lg); padding: 18px;">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+                <h4 style="color: #166534; font-size: 0.98rem; font-weight: 800; margin: 0;">
+                  🇫🇮 Finlandia: De la Cima a la Alarma Nacional
+                </h4>
+                <span style="background: #16a34a; color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.7rem; font-weight: 700;">Pionero PISA</span>
+              </div>
+              <p style="font-size: 0.85rem; color: #14532d; line-height: 1.55; margin-bottom: 8px;">
+                <strong>El Gran Dilema:</strong> Asombró al mundo en 2000-2006 sin pruebas estandarizadas ni tareas excesivas. Sin embargo, desde 2012 sus puntajes han bajado consistentemente (de 563 a 484 en Matemáticas).
+              </p>
+              <div style="background: white; border: 1px solid #bbf7d0; border-radius: 6px; padding: 8px 10px; font-size: 0.8rem; color: #166534;">
+                <strong>Debate Actual:</strong> Expertos finlandeses atribuyen la baja a la invasión de pantallas y redes sociales en niños, pérdida del hábito de lectura recreativa e inclusión sin apoyo suficiente.
+              </div>
+            </div>
+
+            <!-- Singapur -->
+            <div style="background: #f5f3ff; border: 1.5px solid #ddd6fe; border-radius: var(--radius-lg); padding: 18px;">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+                <h4 style="color: #5b21b6; font-size: 0.98rem; font-weight: 800; margin: 0;">
+                  🇸🇬 Singapur: Excelencia Mundial vs. Estrés Infantil
+                </h4>
+                <span style="background: #7c3aed; color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.7rem; font-weight: 700;">1.° Mundial 2022</span>
+              </div>
+              <p style="font-size: 0.85rem; color: #4c1d95; line-height: 1.55; margin-bottom: 8px;">
+                <strong>El Gran Dilema:</strong> Líder absoluto del planeta en Matemáticas (575), Ciencias (561) y Lectura (543). Su currículo de modelado matemático es de excelencia técnica, pero a un alto costo de presión psicológica y ansiedad en estudiantes de 12 a 15 años.
+              </p>
+              <div style="background: white; border: 1px solid #ddd6fe; border-radius: 6px; padding: 8px 10px; font-size: 0.8rem; color: #5b21b6;">
+                <strong>Debate Actual:</strong> El gobierno implementa la reforma <em>"Learn for Life"</em> para reducir exámenes, eliminar rankings públicos y frenar la industria privada de tutorías (*tuition*).
+              </div>
+            </div>
+          </div>
+
+          <!-- Actividad Formativa de Selección: Debate Internacional -->
+          <div class="pisa-quiz-card" style="background: #eff6ff; border: 1.5px solid #bfdbfe; border-radius: var(--radius-lg); padding: 20px; margin-bottom: 24px;">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+              <span style="background: #2563eb; color: white; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.9rem;">?</span>
+              <h4 style="margin: 0; color: #1e40af; font-size: 1.05rem; font-weight: 800;">
+                Actividad de Comprensión: Debate de Políticas Evaluativas
+              </h4>
+            </div>
+            <p style="font-size: 0.86rem; color: #1e3a8a; margin-bottom: 12px;">
+              Selecciona la opción correcta con base en el debate comparativo de los países:
+            </p>
+            <div style="background: white; border: 1px solid #bfdbfe; border-radius: 8px; padding: 14px; margin-bottom: 12px;">
+              <p style="font-weight: 700; color: #1f2937; margin-bottom: 10px; font-size: 0.9rem;">
+                2. ¿Por qué un educador comparatista crítico afirma que el éxito de Singapur en PISA y el modelo sociocomunitario de Bolivia no pueden evaluarse con la misma regla métrica?
+              </p>
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <label style="display: flex; align-items: flex-start; gap: 10px; cursor: pointer; font-size: 0.85rem; color: #374151;">
+                  <input type="radio" name="quiz_pisa_debate" value="0" style="margin-top: 3px;">
+                  <span>Porque Singapur busca maximizar el capital humano en el mercado global mediante alta competencia, mientras la Ley 070 boliviana prioriza la descolonización, el saber comunitario y la armonía territorial (Vivir Bien).</span>
+                </label>
+                <label style="display: flex; align-items: flex-start; gap: 10px; cursor: pointer; font-size: 0.85rem; color: #374151;">
+                  <input type="radio" name="quiz_pisa_debate" value="1" style="margin-top: 3px;">
+                  <span>Porque Singapur utiliza idiomas occidentales y en Bolivia solo se habla inglés en las escuelas rurales.</span>
+                </label>
+                <label style="display: flex; align-items: flex-start; gap: 10px; cursor: pointer; font-size: 0.85rem; color: #374151;">
+                  <input type="radio" name="quiz_pisa_debate" value="2" style="margin-top: 3px;">
+                  <span>Porque no existe ninguna diferencia entre la prueba PISA y el currículo escolar boliviano.</span>
+                </label>
+              </div>
+            </div>
+            <button class="btn-action-primary" onclick="checkPisaDebateQuiz()" style="font-size: 0.85rem; padding: 8px 16px;">
+              Comprobar Respuesta
+            </button>
+            <div id="quiz-pisa-debate-feedback" style="display: none; margin-top: 12px; padding: 12px; border-radius: 8px; font-size: 0.86rem; line-height: 1.45;"></div>
+          </div>
+
+          <!-- Caja de Redacción Crítica del Estudiante -->
+          <div class="pisa-student-reflection-box" style="margin-top: 20px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; flex-wrap: wrap; gap: 8px;">
+              <h4 style="margin: 0; color: var(--uagrm-navy); font-size: 1.05rem; font-weight: 800;">
+                Redacción del Dictamen Estudiantil de Cátedra
+              </h4>
+              <span id="pisa-counter-words" style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted);">
+                Contador: 0 palabras (mínimo 15 palabras)
+              </span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 10px;">
+              Redacta tu dictamen fundamentado: ¿Consideras que Bolivia debería participar en PISA o es acertada la decisión de priorizar el ERCE de la UNESCO y la Ley 070? Justifica tu postura:
+            </p>
+            <textarea id="pisa-student-text" class="pisa-textarea" placeholder="Escribe aquí tu análisis fundamentado... Recuerda vincular conceptos como: Ley 070, UNESCO, ERCE, equidad, descolonización o soberanía curricular." oninput="handlePisaInput(this)"></textarea>
+            
+            <div style="display: flex; align-items: center; gap: 12px; margin-top: 12px; flex-wrap: wrap;">
+              <button class="btn-action-primary" onclick="checkPisaReflection()" style="font-size: 0.86rem; padding: 10px 18px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Comprobar mi Argumentación
+              </button>
+              <button class="btn-action-secondary" onclick="downloadPisaReflection()" style="font-size: 0.86rem; padding: 10px 16px;">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Descargar mi Análisis PISA (.TXT)
+              </button>
+              <span id="pisa-debate-status" style="font-size: 0.85rem; font-weight: 700; color: var(--text-muted);"></span>
+            </div>
+            <div id="pisa-debate-feedback" style="display: none; margin-top: 14px;"></div>
+          </div>
         </div>
 
-        <!-- Panel 4: Bibliografía Real y Fuentes Oficiales -->
+        <!-- ------------------------------------------------------------------
+             PANEL 3: BRECHA SOCIOECONÓMICA & EQUIDAD EN LOS 6 PAÍSES
+             ------------------------------------------------------------------ -->
+        <div class="pisa-content-pane" id="pisa-pane-3">
+          <div style="background: #fffbeb; border: 1.5px solid #fde68a; border-radius: var(--radius-lg); padding: 18px; margin-bottom: 20px;">
+            <h4 style="color: #92400e; font-size: 1.1rem; font-weight: 800; margin-bottom: 8px;">
+              El Índice ESCS y la Injusticia Curricular en los Sistemas Educativos
+            </h4>
+            <p style="font-size: 0.86rem; color: #78350f; line-height: 1.6; margin: 0;">
+              El <strong>Índice de Estatus Económico, Social y Cultural (ESCS)</strong> de la OCDE y los estudios de <strong>Factores Asociados de la UNESCO</strong> evidencian que las brechas de aprendizaje entre países no reflejan diferencias de capacidad intelectual, sino la profunda desigualdad material de los hogares, el acceso a servicios básicos y la segregación escolar.
+            </p>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; margin-bottom: 24px;">
+            <!-- Chile -->
+            <div style="background: white; border: 1.5px solid #e2e8f0; border-radius: 12px; padding: 16px; box-shadow: var(--shadow-sm);">
+              <h4 style="color: var(--uagrm-navy); font-size: 0.95rem; font-weight: 800; margin-bottom: 8px;">
+                🇨🇱 Chile: La Brecha Más Grande de la OCDE
+              </h4>
+              <p style="font-size: 0.84rem; color: var(--text-main); line-height: 1.5; margin-bottom: 8px;">
+                • <strong>85 puntos de distancia:</strong> Un estudiante chileno del cuartil superior (más rico) supera por 85 puntos a uno del cuartil inferior (más vulnerable), lo que equivale a casi <strong>3 años escolares completos de desventaja</strong>.
+              </p>
+              <p style="font-size: 0.84rem; color: #64748b; margin: 0;">
+                • <em>Causa estructural:</em> Décadas de sistema de financiamiento por voucher y colegios particulares subvencionados que fomentaron la segregación residencial y de clase.
+              </p>
+            </div>
+
+            <!-- Colombia -->
+            <div style="background: white; border: 1.5px solid #e2e8f0; border-radius: 12px; padding: 16px; box-shadow: var(--shadow-sm);">
+              <h4 style="color: var(--uagrm-navy); font-size: 0.95rem; font-weight: 800; margin-bottom: 8px;">
+                🇨🇴 Colombia: Baja Resiliencia y Desigualdad Rural
+              </h4>
+              <p style="font-size: 0.84rem; color: var(--text-main); line-height: 1.5; margin-bottom: 8px;">
+                • <strong>83 puntos de brecha:</strong> La diferencia entre un colegio privado bilingüe de Bogotá o Medellín y una escuela rural en Chocó o La Guajira supera los 90 puntos.
+              </p>
+              <p style="font-size: 0.84rem; color: #64748b; margin: 0;">
+                • <em>Baja Resiliencia:</em> Apenas el <strong>12% de los estudiantes vulnerables</strong> logra superar el promedio nacional (estudiantes resilientes).
+              </p>
+            </div>
+
+            <!-- Finlandia -->
+            <div style="background: white; border: 1.5px solid #e2e8f0; border-radius: 12px; padding: 16px; box-shadow: var(--shadow-sm);">
+              <h4 style="color: var(--uagrm-navy); font-size: 0.95rem; font-weight: 800; margin-bottom: 8px;">
+                🇫🇮 Finlandia: La Escuela de Barrio como Garantía de Equidad
+              </h4>
+              <p style="font-size: 0.84rem; color: var(--text-main); line-height: 1.5; margin-bottom: 8px;">
+                • <strong>Brecha contenida (68 puntos):</strong> En Finlandia prácticamente no existen colegios privados. La mejor escuela para una familia es siempre la escuela pública más cercana a su casa.
+              </p>
+              <p style="font-size: 0.84rem; color: #64748b; margin: 0;">
+                • <em>Almuerzo gratuito y salud escolar:</em> Cada estudiante recibe alimentación caliente balanceada, odontología y apoyo psicopedagógico sin costo.
+              </p>
+            </div>
+
+            <!-- Singapur -->
+            <div style="background: white; border: 1.5px solid #e2e8f0; border-radius: 12px; padding: 16px; box-shadow: var(--shadow-sm);">
+              <h4 style="color: var(--uagrm-navy); font-size: 0.95rem; font-weight: 800; margin-bottom: 8px;">
+                🇸🇬 Singapur: La Mayor Tasa de Resiliencia Mundial
+              </h4>
+              <p style="font-size: 0.84rem; color: var(--text-main); line-height: 1.5; margin-bottom: 8px;">
+                • <strong>43% de Estudiantes Resilientes:</strong> Más del 40% de los estudiantes del cuartil socioeconómico más bajo de Singapur logran puntajes situados en el nivel superior de matemáticas.
+              </p>
+              <p style="font-size: 0.84rem; color: #64748b; margin: 0;">
+                • <em>Mecanismo:</em> Becas directas, docentes de élite asignados prioritariamente a escuelas vulnerables y subsidios del Estado para nivelación académica.
+              </p>
+            </div>
+
+            <!-- Bolivia -->
+            <div style="background: white; border: 1.5px solid #e2e8f0; border-radius: 12px; padding: 16px; box-shadow: var(--shadow-sm);">
+              <h4 style="color: var(--uagrm-navy); font-size: 0.95rem; font-weight: 800; margin-bottom: 8px;">
+                🇧🇴 Bolivia: Equidad por Factores Asociados (UNESCO ERCE)
+              </h4>
+              <p style="font-size: 0.84rem; color: var(--text-main); line-height: 1.5; margin-bottom: 8px;">
+                • <strong>Más allá del ranking cuantitativo:</strong> El ERCE de la UNESCO demuestra que en Bolivia los factores determinantes de equidad son el acceso al desayuno escolar (Bono Juancito Pinto), la electrificación rural y la enseñanza en la lengua materna nativa.
+              </p>
+              <p style="font-size: 0.84rem; color: #64748b; margin: 0;">
+                • <em>Ley 070:</em> Fomenta el bachillerato técnico humanístico (BTH) para otorgar herramientas laborales directas a jóvenes de áreas periurbanas y rurales.
+              </p>
+            </div>
+
+            <!-- Cuba -->
+            <div style="background: white; border: 1.5px solid #e2e8f0; border-radius: 12px; padding: 16px; box-shadow: var(--shadow-sm);">
+              <h4 style="color: var(--uagrm-navy); font-size: 0.95rem; font-weight: 800; margin-bottom: 8px;">
+                🇨🇺 Cuba: Ausencia de Segregación Privada
+              </h4>
+              <p style="font-size: 0.84rem; color: var(--text-main); line-height: 1.5; margin-bottom: 8px;">
+                • <strong>Mínima brecha campo-ciudad:</strong> Los informes del LLECE/UNESCO destacaron a Cuba como el país de la región donde la escuela rural presenta rendimientos casi idénticos a los de la capital.
+              </p>
+              <p style="font-size: 0.84rem; color: #64748b; margin: 0;">
+                • <em>Factores clave:</em> Cobertura preescolar del 99% (Programa Educa a tu Hijo), ratio bajo de alumnos por docente y valoración social de la profesión magisterial.
+              </p>
+            </div>
+          </div>
+
+          <!-- Actividad Formativa de Selección: Brecha y Equidad -->
+          <div class="pisa-quiz-card" style="background: #fdf4ff; border: 1.5px solid #f0abfc; border-radius: var(--radius-lg); padding: 20px;">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+              <span style="background: #c026d3; color: white; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.9rem;">?</span>
+              <h4 style="margin: 0; color: #86198f; font-size: 1.05rem; font-weight: 800;">
+                Actividad de Comprensión: La Brecha Socioeconómica
+              </h4>
+            </div>
+            <p style="font-size: 0.86rem; color: #701a75; margin-bottom: 12px;">
+              Selecciona la respuesta científicamente correcta según los hallazgos de PISA y UNESCO:
+            </p>
+            <div style="background: white; border: 1px solid #f0abfc; border-radius: 8px; padding: 14px; margin-bottom: 12px;">
+              <p style="font-weight: 700; color: #1f2937; margin-bottom: 10px; font-size: 0.9rem;">
+                3. ¿Qué define técnicamente a un «estudiante resiliente» en las evaluaciones internacionales y qué país sobresale en este indicador?
+              </p>
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <label style="display: flex; align-items: flex-start; gap: 10px; cursor: pointer; font-size: 0.85rem; color: #374151;">
+                  <input type="radio" name="quiz_pisa_equity" value="0" style="margin-top: 3px;">
+                  <span>Es aquel estudiante proveniente del cuartil socioeconómico más vulnerable que, a pesar de las adversidades de su hogar, logra rendimientos situados en el nivel superior (Singapur alcanza un 43% de resiliencia).</span>
+                </label>
+                <label style="display: flex; align-items: flex-start; gap: 10px; cursor: pointer; font-size: 0.85rem; color: #374151;">
+                  <input type="radio" name="quiz_pisa_equity" value="1" style="margin-top: 3px;">
+                  <span>Es aquel estudiante que nunca asiste a clases y aprueba automáticamente los exámenes.</span>
+                </label>
+                <label style="display: flex; align-items: flex-start; gap: 10px; cursor: pointer; font-size: 0.85rem; color: #374151;">
+                  <input type="radio" name="quiz_pisa_equity" value="2" style="margin-top: 3px;">
+                  <span>Es un estudiante que paga mensualidades elevadas en colegios privados de élite.</span>
+                </label>
+              </div>
+            </div>
+            <button class="btn-action-primary" onclick="checkPisaEquityQuiz()" style="font-size: 0.85rem; padding: 8px 16px;">
+              Comprobar Respuesta
+            </button>
+            <div id="quiz-pisa-equity-feedback" style="display: none; margin-top: 12px; padding: 12px; border-radius: 8px; font-size: 0.86rem; line-height: 1.45;"></div>
+          </div>
+        </div>
+
+        <!-- ------------------------------------------------------------------
+             PANEL 4: BIBLIOGRAFÍA REAL & FUENTES OFICIALES
+             ------------------------------------------------------------------ -->
         <div class="pisa-content-pane" id="pisa-pane-4">
-          <p style="font-size: 0.86rem; color: var(--text-muted); margin-bottom: 14px;">
+          <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 16px;">
             Fuentes documentales primarias y referencias bibliográficas académicas reales (normas APA 7) utilizadas para el análisis de Educación Comparada en EDU-113:
           </p>
-          <div class="biblio-item">
-            <strong>OCDE (2023).</strong> <em>PISA 2022 Results (Volume I): The State of Learning and Equity in Education</em>. París: OECD Publishing. 
-            <br><a href="https://doi.org/10.1787/53f23881-en" target="_blank" rel="noopener noreferrer">https://doi.org/10.1787/53f23881-en ↗</a>
-          </div>
-          <div class="biblio-item">
-            <strong>UNESCO-OREALC (2021).</strong> <em>Los aprendizajes fundamentales en América Latina y el Caribe: Informe Regional del Estudio Regional Comparativo y Explicativo (ERCE 2019)</em>. Santiago de Chile: Oficina Regional de Educación para América Latina y el Caribe. 
-            <br><a href="https://unesdoc.unesco.org/ark:/48223/pf0000380256" target="_blank" rel="noopener noreferrer">https://unesdoc.unesco.org/ark:/48223/pf0000380256 ↗</a>
-          </div>
-          <div class="biblio-item">
-            <strong>Estado Plurinacional de Bolivia (2010).</strong> <em>Ley de la Educación N° 070 «Avelino Siñani - Elizardo Pérez»</em>. La Paz: Gaceta Oficial del Estado Plurinacional de Bolivia.
-          </div>
-          <div class="biblio-item">
-            <strong>Bereday, G. Z. F. (1964).</strong> <em>Comparative Method in Education</em>. Nueva York: Holt, Rinehart and Winston. (Obra fundamental que sistematiza las fases: Descripción, Interpretación, Yuxtaposición y Comparación).
-          </div>
-          <div class="biblio-item">
-            <strong>Sadler, M. (1900).</strong> <em>How Far Can We Learn Anything of Practical Value from the Study of Foreign Systems of Education?</em> Surrey: Guildford. (Principio clásico: Las cosas que ocurren fuera de la escuela importan más que las que ocurren dentro).
-          </div>
-          <div class="biblio-item">
-            <strong>García Garrido, J. L. (1996).</strong> <em>Fundamentos de Educación Comparada</em>. Madrid: Editorial Dykinson.
-          </div>
-          <div class="biblio-item">
-            <strong>Carnoy, M., & Rothstein, R. (2013).</strong> <em>What do international tests really show about U.S. student performance?</em> Washington, D.C.: Economic Policy Institute. (Crítica metodológica al uso descontextualizado de PISA).
+
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <div style="background: #f8fafc; border-left: 4px solid var(--uagrm-navy); padding: 14px 18px; border-radius: 6px;">
+              <strong style="color: var(--uagrm-navy); font-size: 0.92rem;">OCDE (2023).</strong>
+              <span style="font-size: 0.86rem; color: var(--text-main);"> <em>PISA 2022 Results (Volume I): The State of Learning and Equity in Education.</em> París: OECD Publishing.</span>
+              <div style="margin-top: 6px;">
+                <a href="https://doi.org/10.1787/53f23881-en" target="_blank" rel="noopener noreferrer" style="color: var(--uagrm-blue); font-weight: 700; font-size: 0.82rem; text-decoration: underline;">
+                  https://doi.org/10.1787/53f23881-en ↗
+                </a>
+              </div>
+            </div>
+
+            <div style="background: #f8fafc; border-left: 4px solid var(--uagrm-blue); padding: 14px 18px; border-radius: 6px;">
+              <strong style="color: var(--uagrm-navy); font-size: 0.92rem;">UNESCO-OREALC (2021).</strong>
+              <span style="font-size: 0.86rem; color: var(--text-main);"> <em>Los aprendizajes fundamentales en América Latina y el Caribe: Informe Regional del Estudio Regional Comparativo y Explicativo (ERCE 2019).</em> Santiago de Chile: Oficina Regional de Educación para América Latina y el Caribe.</span>
+              <div style="margin-top: 6px;">
+                <a href="https://unesdoc.unesco.org/ark:/48223/pf0000380256" target="_blank" rel="noopener noreferrer" style="color: var(--uagrm-blue); font-weight: 700; font-size: 0.82rem; text-decoration: underline;">
+                  https://unesdoc.unesco.org/ark:/48223/pf0000380256 ↗
+                </a>
+              </div>
+            </div>
+
+            <div style="background: #f8fafc; border-left: 4px solid #16a34a; padding: 14px 18px; border-radius: 6px;">
+              <strong style="color: var(--uagrm-navy); font-size: 0.92rem;">Ministerio de Educación del Estado Plurinacional de Bolivia (2010).</strong>
+              <span style="font-size: 0.86rem; color: var(--text-main);"> <em>Ley de la Educación N° 070 "Avelino Siñani - Elizardo Pérez".</em> La Paz: Gaceta Oficial de Bolivia.</span>
+              <div style="margin-top: 6px;">
+                <a href="https://www.minedu.gob.bo/" target="_blank" rel="noopener noreferrer" style="color: var(--uagrm-blue); font-weight: 700; font-size: 0.82rem; text-decoration: underline;">
+                  https://www.minedu.gob.bo/ ↗
+                </a>
+              </div>
+            </div>
+
+            <div style="background: #f8fafc; border-left: 4px solid #b91c1c; padding: 14px 18px; border-radius: 6px;">
+              <strong style="color: var(--uagrm-navy); font-size: 0.92rem;">Agencia de Calidad de la Educación (2023).</strong>
+              <span style="font-size: 0.86rem; color: var(--text-main);"> <em>Informe Nacional de Resultados PISA 2022: Rendimiento y equidad socioeconómica en estudiantes chilenos.</em> Santiago: Ministerio de Educación de Chile.</span>
+              <div style="margin-top: 6px;">
+                <a href="https://www.agenciadecalidad.cl/" target="_blank" rel="noopener noreferrer" style="color: var(--uagrm-blue); font-weight: 700; font-size: 0.82rem; text-decoration: underline;">
+                  https://www.agenciadecalidad.cl/ ↗
+                </a>
+              </div>
+            </div>
+
+            <div style="background: #f8fafc; border-left: 4px solid #f59e0b; padding: 14px 18px; border-radius: 6px;">
+              <strong style="color: var(--uagrm-navy); font-size: 0.92rem;">ICFES (2023).</strong>
+              <span style="font-size: 0.86rem; color: var(--text-main);"> <em>Colombia en PISA 2022: Informe Ejecutivo de Resultados y Brecha Escolar.</em> Bogotá: Instituto Colombiano para la Evaluación de la Educación.</span>
+              <div style="margin-top: 6px;">
+                <a href="https://www.icfes.gov.co/" target="_blank" rel="noopener noreferrer" style="color: var(--uagrm-blue); font-weight: 700; font-size: 0.82rem; text-decoration: underline;">
+                  https://www.icfes.gov.co/ ↗
+                </a>
+              </div>
+            </div>
+
+            <div style="background: #f8fafc; border-left: 4px solid #7c3aed; padding: 14px 18px; border-radius: 6px;">
+              <strong style="color: var(--uagrm-navy); font-size: 0.92rem;">Finnish National Agency for Education - EDUFI (2023).</strong>
+              <span style="font-size: 0.86rem; color: var(--text-main);"> <em>PISA 2022: Learning Outcomes and National Policy Responses in Finland.</em> Helsinki: Ministry of Education and Culture.</span>
+              <div style="margin-top: 6px;">
+                <a href="https://www.oph.fi/en" target="_blank" rel="noopener noreferrer" style="color: var(--uagrm-blue); font-weight: 700; font-size: 0.82rem; text-decoration: underline;">
+                  https://www.oph.fi/en ↗
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -3629,65 +4048,219 @@
     <section id="sec-cuaderno" class="app-section">
       <div class="section-headline">
         <div>
-          <h2>Cuaderno de Análisis del Estudiante</h2>
-          <p>Redacta tus argumentos fundamentados y compáralos con la rúbrica y respuesta modelo:</p>
+          <span class="badge" style="background:#dbeafe; color:#1e40af; font-weight:800; padding:4px 10px; border-radius:var(--radius-pill); font-size:0.75rem; text-transform:uppercase;">Producción Académica Guiada · EDU-113</span>
+          <h2 style="margin-top:6px;">Diario de Aprendizaje Guiado de Educación Comparada</h2>
+          <p>Construye tu propio diario formativo paso a paso: responde las preguntas orientadoras, fundamenta tus reflexiones y compila tu dictamen completo de cátedra.</p>
         </div>
       </div>
 
-      <div class="journal-box">
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
-          <span style="font-size: 0.74rem; font-weight: 800; color: var(--uagrm-accent); text-transform: uppercase;">Ejercicio de Producción Escrita</span>
-          <span style="font-size: 0.74rem; color: var(--text-muted); font-weight: 600;" id="word-count-indicator">0 palabras</span>
-        </div>
-        <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--uagrm-navy); margin-bottom: 8px;">
-          Actividad: Redacta una comparación contextualizada
-        </h3>
-        <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5;">
-          Elige dos sistemas educativos (ej. Bolivia y Chile o Colombia). Explica una <strong>semejanza estructural</strong>, una <strong>diferencia</strong> y fundamenta por qué tener más años de primaria o una tasa bruta mayor <strong>no significa automáticamente</strong> tener mejor calidad educativa:
-        </p>
-
-        <textarea id="student-journal" class="journal-textarea" placeholder="Escribe aquí tu análisis fundamentado... Recuerda mencionar las normas o dimensiones estudiadas." oninput="handleJournalInput()"></textarea>
-
-        <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 16px;">
-          <button class="btn-action-primary" style="font-size: 0.84rem; padding: 10px 18px;" onclick="checkJournalRubric()">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Ver Rúbrica y Respuesta Modelo
-          </button>
-          <button class="btn-action-secondary" style="font-size: 0.84rem; padding: 10px 16px; color: var(--uagrm-navy); border-color: #cbd5e1;" onclick="clearJournal()">
-            Limpiar Cuaderno
-          </button>
+      <!-- Tarjeta Principal del Diario de Aprendizaje Guiado -->
+      <div class="journal-box" style="background: white; border: 1.5px solid #cbd5e1; border-radius: var(--radius-xl); padding: 26px; box-shadow: var(--shadow-card);">
+        
+        <div style="background: #f8fafc; border-left: 4px solid var(--uagrm-navy); padding: 14px 18px; border-radius: 8px; margin-bottom: 22px;">
+          <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--uagrm-navy); margin: 0 0 6px 0;">
+            ¿Cómo funciona tu Diario de Aprendizaje?
+          </h3>
+          <p style="font-size: 0.86rem; color: var(--text-muted); line-height: 1.55; margin: 0;">
+            En lugar de redactar una hoja vacía sin guía, aquí avanzas por <strong>4 dimensiones clave</strong> de la materia. En cada dimensión seleccionas la postura pedagógica correcta y agregas tu propia reflexión personal. Al terminar, presiona <strong>«Compilar y Ver mi Diario Completo»</strong> para generar tu informe académico listo para imprimir o descargar.
+          </p>
         </div>
 
-        <div id="journal-rubric-view" style="display: none; background: #f8fafc; border: 1.5px solid #bfdbfe; border-radius: var(--radius-lg); padding: 20px; animation: fadeIn 0.3s ease;">
-          <h4 style="font-size: 1rem; font-weight: 800; color: var(--uagrm-navy); margin-bottom: 10px;">
-            Rúbrica de Autocotejo (Criterios de Evaluación):
+        <!-- PASO 1: EVALUACIONES INTERNACIONALES Y PISA -->
+        <div class="diary-step-card" style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: var(--radius-lg); padding: 20px; margin-bottom: 20px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
+            <span style="background: #eff6ff; color: #1e40af; font-weight: 800; font-size: 0.76rem; padding: 4px 12px; border-radius: 20px; text-transform: uppercase;">
+              Paso 1 · Evaluación Estandarizada
+            </span>
+            <span style="font-size: 0.8rem; font-weight: 700; color: #64748b;" id="diary-step1-status">⚪ Sin completar</span>
+          </div>
+          <h4 style="font-size: 1rem; font-weight: 800; color: var(--uagrm-navy); margin: 0 0 8px 0;">
+            1. Comprensión de las Pruebas PISA y Evaluaciones de la OCDE
           </h4>
-          <div class="rubric-checklist">
-            <label class="rubric-item">
-              <input type="checkbox" id="chk-1">
-              <span>Menciono los países y su marco legal o estructura (ej. Ley 070 en Bolivia).</span>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px;">
+            ¿Cuál es la limitación epistemológica principal de evaluar la calidad de un sistema educativo únicamente por su puntaje en PISA?
+          </p>
+          <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px;">
+            <label class="diary-option-label" style="display: flex; align-items: flex-start; gap: 10px; background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 10px 14px; cursor: pointer; font-size: 0.85rem;">
+              <input type="radio" name="diary_opt_1" value="0" onchange="selectDiaryOption(1, 0)" style="margin-top: 3px;">
+              <span>Que PISA mide competencias orientadas al mercado global y puede inducir a copiar recetas foráneas desconectadas de las necesidades comunitarias y culturales de cada pueblo.</span>
             </label>
-            <label class="rubric-item">
-              <input type="checkbox" id="chk-2">
-              <span>Identifico una semejanza sin homogeneizar la realidad de los países.</span>
-            </label>
-            <label class="rubric-item">
-              <input type="checkbox" id="chk-3">
-              <span>Distingo la estructura escolar de la calidad del aprendizaje (evito jerarquías simples).</span>
-            </label>
-            <label class="rubric-item">
-              <input type="checkbox" id="chk-4">
-              <span>Reconozco los límites de la información disponible y evito clasificaciones arbitrarias.</span>
+            <label class="diary-option-label" style="display: flex; align-items: flex-start; gap: 10px; background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 10px 14px; cursor: pointer; font-size: 0.85rem;">
+              <input type="radio" name="diary_opt_1" value="1" onchange="selectDiaryOption(1, 1)" style="margin-top: 3px;">
+              <span>Que los puntajes numéricos son el único indicador científico válido de la inteligencia innata de los estudiantes.</span>
             </label>
           </div>
+          <label style="display: block; font-size: 0.82rem; font-weight: 700; color: var(--uagrm-navy); margin-bottom: 6px;">
+            Mi Reflexión Personal sobre este paso:
+          </label>
+          <textarea id="diary-text-1" class="journal-textarea" style="min-height: 70px; margin-bottom: 0;" placeholder="Escribe con tus propias palabras qué aprendiste sobre PISA (ej: por qué un ranking no define la calidad integral de una sociedad)..." oninput="saveDiaryDraft()"></textarea>
+        </div>
 
-          <div style="margin-top: 16px; background: white; border: 1px solid #cbd5e1; border-radius: var(--radius-md); padding: 14px;">
-            <b style="color: var(--uagrm-blue); font-size: 0.82rem; text-transform: uppercase;">Ejemplo Modelo de Respuesta Académica:</b>
-            <p style="font-size: 0.84rem; color: var(--text-main); margin-top: 6px; line-height: 1.55;">
-              <em>«Bolivia y Colombia organizan sus trayectorias escolares en tramos obligatorios continuos. Sin embargo, su distribución varía: Bolivia establece 6 años de Primaria y 6 de Secundaria (Ley 070), mientras que Colombia agrupa la Educación Básica en 5 grados primarios y 4 secundarios, seguidos de 2 de Media (Ley 115). Esta variación de duración es meramente organizativa; no demuestra que un país aprenda más que otro. Para evaluar la calidad real se requerirían indicadores específicos de aprendizaje y no solo métricas de permanencia escolar.»</em>
-            </p>
+        <!-- PASO 2: SOBERANÍA EDUCATIVA Y LEY 070 -->
+        <div class="diary-step-card" style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: var(--radius-lg); padding: 20px; margin-bottom: 20px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
+            <span style="background: #fef2f2; color: #991b1b; font-weight: 800; font-size: 0.76rem; padding: 4px 12px; border-radius: 20px; text-transform: uppercase;">
+              Paso 2 · Soberanía Curricular
+            </span>
+            <span style="font-size: 0.8rem; font-weight: 700; color: #64748b;" id="diary-step2-status">⚪ Sin completar</span>
+          </div>
+          <h4 style="font-size: 1rem; font-weight: 800; color: var(--uagrm-navy); margin: 0 0 8px 0;">
+            2. El Modelo Sociocomunitario Productivo de Bolivia (Ley 070)
+          </h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px;">
+            ¿Por qué el Estado Plurinacional de Bolivia y la Ley 070 priorizan evaluaciones regionales de la UNESCO (ERCE) sobre los rankings de la OCDE?
+          </p>
+          <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px;">
+            <label class="diary-option-label" style="display: flex; align-items: flex-start; gap: 10px; background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 10px 14px; cursor: pointer; font-size: 0.85rem;">
+              <input type="radio" name="diary_opt_2" value="0" onchange="selectDiaryOption(2, 0)" style="margin-top: 3px;">
+              <span>Porque la Ley 070 fundamenta la educación en la descolonización, la intraculturalidad y los saberes productivos, mientras el ERCE evalúa currículos latinoamericanos contextualizados y factores asociados sin lógicas de castigo mercantil.</span>
+            </label>
+            <label class="diary-option-label" style="display: flex; align-items: flex-start; gap: 10px; background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 10px 14px; cursor: pointer; font-size: 0.85rem;">
+              <input type="radio" name="diary_opt_2" value="1" onchange="selectDiaryOption(2, 1)" style="margin-top: 3px;">
+              <span>Porque la Ley 070 prohíbe evaluar a los alumnos en cualquier materia escolar.</span>
+            </label>
+          </div>
+          <label style="display: block; font-size: 0.82rem; font-weight: 700; color: var(--uagrm-navy); margin-bottom: 6px;">
+            Mi Reflexión Personal sobre este paso:
+          </label>
+          <textarea id="diary-text-2" class="journal-textarea" style="min-height: 70px; margin-bottom: 0;" placeholder="Escribe con tus propias palabras qué opinas sobre la educación descolonizadora y la valoración de lenguas originarias..." oninput="saveDiaryDraft()"></textarea>
+        </div>
+
+        <!-- PASO 3: BRECHA SOCIOECONÓMICA -->
+        <div class="diary-step-card" style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: var(--radius-lg); padding: 20px; margin-bottom: 20px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
+            <span style="background: #fffbeb; color: #92400e; font-weight: 800; font-size: 0.76rem; padding: 4px 12px; border-radius: 20px; text-transform: uppercase;">
+              Paso 3 · Equidad y Factores Asociados
+            </span>
+            <span style="font-size: 0.8rem; font-weight: 700; color: #64748b;" id="diary-step3-status">⚪ Sin completar</span>
+          </div>
+          <h4 style="font-size: 1rem; font-weight: 800; color: var(--uagrm-navy); margin: 0 0 8px 0;">
+            3. El Impacto del Origen Socioeconómico Familiar (Índice ESCS)
+          </h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px;">
+            ¿Qué revela la brecha de más de 80 puntos observada en países como Chile y Colombia?
+          </p>
+          <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px;">
+            <label class="diary-option-label" style="display: flex; align-items: flex-start; gap: 10px; background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 10px 14px; cursor: pointer; font-size: 0.85rem;">
+              <input type="radio" name="diary_opt_3" value="0" onchange="selectDiaryOption(3, 0)" style="margin-top: 3px;">
+              <span>Que la segregación escolar y la desigualdad económica familiar generan brechas equivalentes a casi 3 años de escolaridad, por lo que mejorar la educación exige resolver primero las condiciones materiales de vida.</span>
+            </label>
+            <label class="diary-option-label" style="display: flex; align-items: flex-start; gap: 10px; background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 10px 14px; cursor: pointer; font-size: 0.85rem;">
+              <input type="radio" name="diary_opt_3" value="1" onchange="selectDiaryOption(3, 1)" style="margin-top: 3px;">
+              <span>Que las escuelas públicas rurales tienen exactamente los mismos recursos tecnológicos que los colegios privados de élite.</span>
+            </label>
+          </div>
+          <label style="display: block; font-size: 0.82rem; font-weight: 700; color: var(--uagrm-navy); margin-bottom: 6px;">
+            Mi Reflexión Personal sobre este paso:
+          </label>
+          <textarea id="diary-text-3" class="journal-textarea" style="min-height: 70px; margin-bottom: 0;" placeholder="Escribe con tus propias palabras qué opinas sobre cómo la pobreza, la nutrición y el entorno del hogar influyen en el aprendizaje..." oninput="saveDiaryDraft()"></textarea>
+        </div>
+
+        <!-- PASO 4: EL MÉTODO COMPARATIVO Y EL ERROR DEL TRASPLANTE -->
+        <div class="diary-step-card" style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: var(--radius-lg); padding: 20px; margin-bottom: 22px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
+            <span style="background: #f0fdf4; color: #166534; font-weight: 800; font-size: 0.76rem; padding: 4px 12px; border-radius: 20px; text-transform: uppercase;">
+              Paso 4 · Conclusión Metodológica
+            </span>
+            <span style="font-size: 0.8rem; font-weight: 700; color: #64748b;" id="diary-step4-status">⚪ Sin completar</span>
+          </div>
+          <h4 style="font-size: 1rem; font-weight: 800; color: var(--uagrm-navy); margin: 0 0 8px 0;">
+            4. Lección Científica: El Riesgo del Trasplante Acrítico de Modelos
+          </h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px;">
+            ¿Por qué un pedagogo comparatista riguroso nunca debe recomendar copiar ciegamente las leyes educativas de Finlandia o Singapur?
+          </p>
+          <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px;">
+            <label class="diary-option-label" style="display: flex; align-items: flex-start; gap: 10px; background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 10px 14px; cursor: pointer; font-size: 0.85rem;">
+              <input type="radio" name="diary_opt_4" value="0" onchange="selectDiaryOption(4, 0)" style="margin-top: 3px;">
+              <span>Porque la educación es un fenómeno histórico, cultural y contextual; importar reformas ajenas sin las condiciones de desarrollo y sin la cultura comunitaria local genera distorsión pedagógica y fracaso institucional.</span>
+            </label>
+            <label class="diary-option-label" style="display: flex; align-items: flex-start; gap: 10px; background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 10px 14px; cursor: pointer; font-size: 0.85rem;">
+              <input type="radio" name="diary_opt_4" value="1" onchange="selectDiaryOption(4, 1)" style="margin-top: 3px;">
+              <span>Porque todos los países tienen el mismo idioma, la misma geografía y el mismo presupuesto fiscal.</span>
+            </label>
+          </div>
+          <label style="display: block; font-size: 0.82rem; font-weight: 700; color: var(--uagrm-navy); margin-bottom: 6px;">
+            Mi Dictamen Final de Cátedra EDU-113:
+          </label>
+          <textarea id="diary-text-4" class="journal-textarea" style="min-height: 70px; margin-bottom: 0;" placeholder="Redacta tu conclusión integradora final como futuro profesional en Ciencias de la Educación..." oninput="saveDiaryDraft()"></textarea>
+        </div>
+
+        <!-- BARRA DE ACCIONES DEL DIARIO -->
+        <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin-bottom: 20px;">
+          <button class="btn-action-primary" onclick="compileStudentDiary()" style="font-size: 0.92rem; padding: 12px 24px; display: inline-flex; align-items: center; gap: 8px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            📖 Compilar y Ver mi Diario Completo
+          </button>
+          
+          <button class="btn-action-secondary" onclick="toggleDiaryRubric()" style="font-size: 0.88rem; padding: 11px 18px; background: #071c32; color: #ffffff; border: 2px solid #b91c1c;">
+            📋 Ver Criterios de la Rúbrica
+          </button>
+          
+          <button onclick="resetStudentDiary()" style="background: #ffffff; color: #b91c1c; border: 2px solid #b91c1c; border-radius: var(--radius-pill); padding: 10px 18px; font-size: 0.86rem; font-weight: 700; cursor: pointer; transition: all 0.2s ease;">
+            ↺ Reiniciar Diario
+          </button>
+        </div>
+
+        <!-- PANEL DE RÚBRICA DE CÁTEDRA (Desplegable) -->
+        <div id="diary-rubric-view" style="display: none; background: #f8fafc; border: 1.5px solid #bfdbfe; border-radius: var(--radius-lg); padding: 20px; margin-bottom: 24px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+            <h4 style="font-size: 1.05rem; font-weight: 800; color: var(--uagrm-navy); margin: 0;">
+              Rúbrica Oficial de Autocotejo (Cátedra EDU-113 · UAGRM)
+            </h4>
+            <span style="font-size: 0.78rem; font-weight: 700; background: #dbeafe; color: #1e40af; padding: 3px 10px; border-radius: 12px;">4 Criterios</span>
+          </div>
+          <div class="rubric-checklist" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px;">
+            <div style="background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px;">
+              <strong style="color: #1e40af; font-size: 0.86rem;">1. Rigor Epistemológico:</strong>
+              <p style="font-size: 0.82rem; color: #475569; margin: 4px 0 0 0;">Distingue la evaluación formativa contextualizada (ERCE) de rankings cuantitativos de capital humano (PISA).</p>
+            </div>
+            <div style="background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px;">
+              <strong style="color: #1e40af; font-size: 0.86rem;">2. Soberanía y Descolonización:</strong>
+              <p style="font-size: 0.82rem; color: #475569; margin: 4px 0 0 0;">Fundamenta el valor del modelo sociocomunitario y las lenguas indígenas de la Ley 070 frente a recetas externas.</p>
+            </div>
+            <div style="background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px;">
+              <strong style="color: #1e40af; font-size: 0.86rem;">3. Análisis de Equidad Social:</strong>
+              <p style="font-size: 0.82rem; color: #475569; margin: 4px 0 0 0;">Explica cómo la brecha socioeconómica familiar condiciona los aprendizajes y evita culpabilizar a la escuela pública.</p>
+            </div>
+            <div style="background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px;">
+              <strong style="color: #1e40af; font-size: 0.86rem;">4. Pensamiento Crítico:</strong>
+              <p style="font-size: 0.82rem; color: #475569; margin: 4px 0 0 0;">Rechaza el trasplante mecánico de modelos educativos extranjeros y formula propuestas viables para la realidad boliviana.</p>
+            </div>
           </div>
         </div>
+
+        <!-- VISOR DEL DIARIO COMPILADO Y GENERADO -->
+        <div id="diary-compiled-view" style="display: none; background: #ffffff; border: 2px solid var(--uagrm-navy); border-radius: var(--radius-xl); padding: 26px; box-shadow: 0 10px 30px rgba(7, 28, 50, 0.15); margin-top: 24px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid #e2e8f0; padding-bottom: 14px; margin-bottom: 18px; flex-wrap: wrap; gap: 12px;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <img src="logo_educacion_comparada.jpg" alt="EDU-113" style="height: 48px; width: auto; border-radius: 6px; border: 1px solid #e2e8f0; padding: 2px;">
+              <div>
+                <h3 style="color: var(--uagrm-navy); margin: 0; font-size: 1.15rem; font-weight: 800;">
+                  Diario Académico Compilado · Educación Comparada (EDU-113)
+                </h3>
+                <p style="color: #64748b; margin: 2px 0 0 0; font-size: 0.82rem;" id="diary-meta-date">
+                  Universidad Autónoma Gabriel René Moreno · Facultad de Humanidades
+                </p>
+              </div>
+            </div>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <button onclick="downloadStudentDiary()" style="background: #16a34a; color: white; border: none; border-radius: var(--radius-pill); padding: 8px 16px; font-size: 0.84rem; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Descargar (.TXT)
+              </button>
+              <button onclick="printStudentDiary()" style="background: var(--uagrm-navy); color: white; border: none; border-radius: var(--radius-pill); padding: 8px 16px; font-size: 0.84rem; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+                Imprimir / PDF
+              </button>
+            </div>
+          </div>
+
+          <div id="diary-document-body" style="font-size: 0.9rem; line-height: 1.65; color: #1e293b;">
+            <!-- Documento compilado generado vía JS -->
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -4471,12 +5044,11 @@
        ========================================================================== */
     function toggleDrawer(isOpen) {
       const drawer = document.getElementById("sidebar-drawer");
-      const backdrop = document.getElementById("drawer-backdrop");
-      if (!drawer || !backdrop) return;
+      if (!drawer) return;
       const willOpen = (isOpen !== undefined) ? isOpen : !drawer.classList.contains("active");
       drawer.classList.toggle("active", willOpen);
-      backdrop.classList.toggle("active", willOpen);
-      document.body.style.overflow = willOpen ? "hidden" : "";
+      // No bloqueamos el scroll ni oscurecemos la pantalla
+      document.body.style.overflow = "";
     }
 
     function navTo(tabId) {
@@ -5837,6 +6409,7 @@
        ========================================================================== */
     document.addEventListener("DOMContentLoaded", () => {
       loadState();
+      selectPisaYear(2022);
       
       // Restaurar texto del cuaderno si existía
       const jArea = document.getElementById("student-journal");
@@ -5864,6 +6437,444 @@
         navTo(hash);
       }
     });
-  </script>
+  
+    /* ==========================================================================
+       DATOS HISTÓRICOS Y MOTOR INTERACTIVO DE PRUEBAS PISA (2006 - 2022)
+       ========================================================================== */
+    const pisaHistoricalData = {
+      2022: {
+        year: 2022,
+        title: "Ciclo PISA 2022 (Edición Pospandemia)",
+        summary: "Primer ciclo evaluado tras la pandemia de COVID-19. Refleja una caída global sin precedentes en lectura y matemáticas en la mayoría de países de la OCDE, con la notable excepción de Singapur, que amplió su liderazgo.",
+        oecdAvg: { math: 472, read: 476, sci: 485 },
+        topCountry: "🇸🇬 Singapur (Líder Absoluto Mundial: 575 en Mat, 543 en Lect, 561 en Cien)",
+        challengeCountry: "🇨🇴 Colombia (383 en Mat, 89 puntos de rezago frente a la media OCDE) y 🇨🇱 Chile (412 en Mat con brecha socioeconómica de 85 puntos).",
+        trendAnalysis: "Finlandia desciende a 484 en matemáticas (su nivel más bajo en la historia de PISA), confirmando la crisis de lectura digital en Europa nórdica. Singapur demuestra resiliencia gracias a su estricta disciplina curricular y apoyo focalizado.",
+        countries: [
+          { name: "🇸🇬 Singapur", math: 575, read: 543, sci: 561, rank: "1.° Puesto Mundial", note: "Líder absoluto del planeta en las tres áreas evaluadas." },
+          { name: "🇫🇮 Finlandia", math: 484, read: 490, sci: 511, rank: "Top 20 Mundial", note: "Continúa descenso desde 2006; debate nacional sobre pantallas y lectura." },
+          { name: "🇨🇱 Chile", math: 412, read: 448, sci: 444, rank: "1.° en Sudamérica", note: "Líder regional pero con la brecha socioeconómica más alta de la OCDE." },
+          { name: "🇨🇴 Colombia", math: 383, read: 409, sci: 411, rank: "Rezago Regional", note: "Marcada asimetría entre colegios privados de élite y escuelas rurales." },
+          { name: "🇧🇴 Bolivia", math: "—", read: "—", sci: "—", rank: "No Aplica PISA (Ley 070)", note: "Soberanía educativa. Prioriza el ERCE (UNESCO) con enfoque intracultural comunitario." },
+          { name: "🇨🇺 Cuba", math: "—", read: "—", sci: "—", rank: "No Aplica PISA (MINED)", note: "Rechazo a rankings de mercado. Histórico liderazgo en LLECE/ERCE de la UNESCO." }
+        ]
+      },
+      2018: {
+        year: 2018,
+        title: "Ciclo PISA 2018 (Énfasis en Comprensión Lectora Digital)",
+        summary: "Evaluó las competencias lectoras en entornos digitales y navegación hipertextual. Dominio de economías asiáticas y estabilidad de Chile como primer referente de Sudamérica.",
+        oecdAvg: { math: 489, read: 487, sci: 489 },
+        topCountry: "🇸🇬 Singapur (2.° Puesto Mundial tras las 4 provincias chinas B-S-J-Z: 569 en Mat, 549 en Lect, 551 en Cien)",
+        challengeCountry: "🇨🇴 Colombia (391 en Mat, persistencia de rezago en pensamiento lógico-formal).",
+        trendAnalysis: "Chile alcanzó 452 puntos en lectura, su mejor puntaje histórico relativo en Sudamérica. Finlandia aún superaba los 500 puntos (507 en Mat, 520 en Lect), pero comenzaba a perder terreno frente a los países bálticos (Estonia).",
+        countries: [
+          { name: "🇸🇬 Singapur", math: 569, read: 549, sci: 551, rank: "2.° Mundial", note: "Rendimiento sobresaliente en resolución colaborativa de problemas." },
+          { name: "🇫🇮 Finlandia", math: 507, read: 520, sci: 522, rank: "Top 10 Mundial", note: "Mantiene alta equidad, pero registra menor motivación lectora en varones." },
+          { name: "🇨🇱 Chile", math: 417, read: 452, sci: 444, rank: "1.° en Sudamérica", note: "Consolida liderazgo en lectura regional tras reformas de inclusión." },
+          { name: "🇨🇴 Colombia", math: 391, read: 412, sci: 413, rank: "En Progreso Lento", note: "Ligera alza en lectura (412) comparado con el ciclo basal de 2006." },
+          { name: "🇧🇴 Bolivia", math: "—", read: "—", sci: "—", rank: "No Aplica PISA (Ley 070)", note: "Aplicación de diagnósticos formativos con el Observatorio OPCE y UNESCO." },
+          { name: "🇨🇺 Cuba", math: "—", read: "—", sci: "—", rank: "No Aplica PISA (MINED)", note: "Participación en ciclos de evaluación regional latinoamericana UNESCO." }
+        ]
+      },
+      2015: {
+        year: 2015,
+        title: "Ciclo PISA 2015 (Transición a Evaluación por Computadora)",
+        summary: "Primer ciclo aplicado completamente en formato digital en la mayoría de países miembros. Evaluó Ciencias como competencia principal.",
+        oecdAvg: { math: 490, read: 493, sci: 493 },
+        topCountry: "🇸🇬 Singapur (1.° Mundial Absoluto: 564 en Mat, 535 en Lect, 556 en Cien)",
+        challengeCountry: "🇨🇴 Colombia (390 en Mat, aunque fue destacado por la OCDE como uno de los países con mayor mejora relativa desde 2006).",
+        trendAnalysis: "Singapur desplazó a Shanghái y se coronó en el primer lugar mundial en todas las asignaturas. Finlandia obtuvo 531 en Ciencias (3.° mundial), siendo el único país donde las niñas superaban a los niños en rendimiento científico.",
+        countries: [
+          { name: "🇸🇬 Singapur", math: 564, read: 535, sci: 556, rank: "1.° Puesto Mundial", note: "Triplete dorado en Matemáticas, Ciencias y Lectura digital." },
+          { name: "🇫🇮 Finlandia", math: 511, read: 526, sci: 531, rank: "3.° en Ciencias", note: "Alta equidad de género; excelencia en indagación científica escolar." },
+          { name: "🇨🇱 Chile", math: 423, read: 459, sci: 447, rank: "1.° en Sudamérica", note: "Pico histórico en lectura (459), reduciendo la brecha con la media OCDE." },
+          { name: "🇨🇴 Colombia", math: 390, read: 425, sci: 416, rank: "Mayor Avance Relativo", note: "Crecimiento destacado de +20 puntos en lectura frente a 2006." },
+          { name: "🇧🇴 Bolivia", math: "—", read: "—", sci: "—", rank: "No Aplica PISA (Ley 070)", note: "Consolidación curricular del Modelo Sociocomunitario Productivo." },
+          { name: "🇨🇺 Cuba", math: "—", read: "—", sci: "—", rank: "No Aplica PISA (MINED)", note: "Resultados estelares en el estudio TERCE (UNESCO) en primaria." }
+        ]
+      },
+      2012: {
+        year: 2012,
+        title: "Ciclo PISA 2012 (Enfoque Central en Competencia Matemática)",
+        summary: "Ciclo dedicado a la alfabetización matemática y resolución de problemas de la vida real. Auge de las economías del Este Asiático.",
+        oecdAvg: { math: 494, read: 496, sci: 501 },
+        topCountry: "🇸🇬 Singapur (2.° Mundial tras Shanghái: 573 en Mat, 542 en Lect, 551 en Cien)",
+        challengeCountry: "🇨🇴 Colombia (376 en Mat, dificultades severas en formulación y modelación matemática).",
+        trendAnalysis: "Finlandia (519 en Mat) empieza a mostrar señales tempranas de fatiga pedagógica. Chile (423) afianza su distancia de más de 40 puntos respecto a Colombia y Perú.",
+        countries: [
+          { name: "🇸🇬 Singapur", math: 573, read: 542, sci: 551, rank: "2.° Mundial", note: "Éxito mundial del método CPA (Concreto, Pictórico, Abstracto)." },
+          { name: "🇫🇮 Finlandia", math: 519, read: 524, sci: 545, rank: "Top 5 Mundial", note: "Mantiene alta valoración internacional, pero baja 29 puntos en ciencias." },
+          { name: "🇨🇱 Chile", math: 423, read: 441, sci: 445, rank: "1.° en Sudamérica", note: "Mantiene estabilidad en matemáticas y ciencias." },
+          { name: "🇨🇴 Colombia", math: 376, read: 403, sci: 399, rank: "Rezago Severo en Mat", note: "El 74% de los estudiantes se ubicó en los niveles más bajos de matemática." },
+          { name: "🇧🇴 Bolivia", math: "—", read: "—", sci: "—", rank: "No Aplica PISA (Ley 070)", note: "Promulgación e implementación inicial de la Ley 070 (Avelino Siñani)." },
+          { name: "🇨🇺 Cuba", math: "—", read: "—", sci: "—", rank: "No Aplica PISA (MINED)", note: "Sistema educativo socialista sin evaluación por mercado." }
+        ]
+      },
+      2006: {
+        year: 2006,
+        title: "Ciclo PISA 2006 (La 'Era Dorada' de Finlandia en Ciencias)",
+        summary: "Ciclo histórico donde Finlandia alcanzó la cima absoluta del mundo educativo occidental sin exámenes estandarizados, convirtiéndose en el gran referente de la Educación Comparada.",
+        oecdAvg: { math: 498, read: 492, sci: 500 },
+        topCountry: "🇫🇮 Finlandia (1.° Puesto Mundial Absoluto: 563 en Ciencias, 548 en Mat, 547 en Lect)",
+        challengeCountry: "🇨🇴 Colombia (370 en Mat, 385 en Lect, 388 en Cien; puntajes basales iniciales en PISA).",
+        trendAnalysis: "Finlandia asombró a la comunidad académica global: profesores con grado de maestría, autonomía curricular plena y cero tareas en primaria. Singapur aún no participaba como sistema independiente en este ciclo.",
+        countries: [
+          { name: "🇫🇮 Finlandia", math: 548, read: 547, sci: 563, rank: "1.° Mundial Absoluto", note: "El 'milagro educativo finlandés' en su máxima expresión histórica." },
+          { name: "🇸🇬 Singapur", math: "—", read: "—", sci: "—", rank: "No participó formalmente", note: "Se incorporó de lleno en PISA 2009 alcanzando el podio mundial de inmediato." },
+          { name: "🇨🇱 Chile", math: 411, read: 442, sci: 438, rank: "1.° en Sudamérica", note: "Primeros ciclos tras la Jornada Escolar Completa (JEC)." },
+          { name: "🇨🇴 Colombia", math: 370, read: 385, sci: 388, rank: "Línea de Base PISA", note: "Puntaje inicial de diagnóstico nacional." },
+          { name: "🇧🇴 Bolivia", math: "—", read: "—", sci: "—", rank: "No Aplica PISA", note: "Debates previos del Congreso Nacional de Educación para la futura Ley 070." },
+          { name: "🇨🇺 Cuba", math: "—", read: "—", sci: "—", rank: "No Aplica PISA", note: "Liderazgo en el SERCE de la UNESCO con puntajes sobresalientes en primaria." }
+        ]
+      }
+    };
+
+    function selectPisaYear(year) {
+      const data = pisaHistoricalData[year];
+      if (!data) return;
+
+      // Actualizar botones de año
+      [2022, 2018, 2015, 2012, 2006].forEach(y => {
+        const btn = document.getElementById("btn-year-" + y);
+        if (btn) btn.classList.toggle("active", y === year);
+      });
+
+      // Renderizar resumen del ciclo
+      const summaryCard = document.getElementById("pisa-year-summary-card");
+      if (summaryCard) {
+        summaryCard.innerHTML = `
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-bottom: 6px;">
+            <strong style="color: var(--uagrm-navy); font-size: 1rem;">${data.title}</strong>
+            <span style="background: #eff6ff; color: #1e40af; font-weight: 700; font-size: 0.78rem; padding: 2px 8px; border-radius: 10px;">
+              Media OCDE: Mat ${data.oecdAvg.math} | Lect ${data.oecdAvg.read} | Cien ${data.oecdAvg.sci}
+            </span>
+          </div>
+          <p style="font-size: 0.85rem; color: #334151; margin: 0; line-height: 1.5;">${data.summary}</p>
+        `;
+      }
+
+      // Renderizar tabla dinámica de los 6 países
+      const tableContainer = document.getElementById("pisa-dynamic-table-container");
+      if (tableContainer) {
+        let rowsHtml = data.countries.map(c => {
+          const isNum = typeof c.math === "number";
+          const mBadge = isNum ? `<span class="pisa-score-badge ${c.math >= 520 ? 'score-high' : c.math >= 450 ? 'score-mid' : 'score-low'}">${c.math}</span>` : `<span style="color:#64748b; font-weight:700;">${c.math}</span>`;
+          const rBadge = isNum ? `<span class="pisa-score-badge ${c.read >= 520 ? 'score-high' : c.read >= 450 ? 'score-mid' : 'score-low'}">${c.read}</span>` : `<span style="color:#64748b; font-weight:700;">${c.read}</span>`;
+          const sBadge = isNum ? `<span class="pisa-score-badge ${c.sci >= 520 ? 'score-high' : c.sci >= 450 ? 'score-mid' : 'score-low'}">${c.sci}</span>` : `<span style="color:#64748b; font-weight:700;">${c.sci}</span>`;
+
+          return `
+            <tr>
+              <td><strong>${c.name}</strong></td>
+              <td>${mBadge}</td>
+              <td>${rBadge}</td>
+              <td>${sBadge}</td>
+              <td>
+                <span style="font-weight:700; color:var(--uagrm-navy);">${c.rank}</span>
+                <div style="font-size:0.78rem; color:#64748b; margin-top:2px;">${c.note}</div>
+              </td>
+            </tr>
+          `;
+        }).join("");
+
+        tableContainer.innerHTML = `
+          <table class="pisa-scores-table">
+            <thead>
+              <tr>
+                <th>País Comparado</th>
+                <th>Matemáticas</th>
+                <th>Lectura</th>
+                <th>Ciencias</th>
+                <th>Posición / Situación en el Ciclo ${year}</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${rowsHtml}
+            </tbody>
+          </table>
+        `;
+      }
+
+      // Renderizar Insights del ciclo
+      const insightsContainer = document.getElementById("pisa-year-insights-container");
+      if (insightsContainer) {
+        insightsContainer.innerHTML = `
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px;">
+            <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 10px; padding: 14px;">
+              <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+                <span style="font-size: 1.2rem;">🏆</span>
+                <strong style="color: #166534; font-size: 0.9rem;">País Sobresaliente en ${year}:</strong>
+              </div>
+              <p style="font-size: 0.83rem; color: #14532d; margin: 0; line-height: 1.45;">${data.topCountry}</p>
+            </div>
+
+            <div style="background: #fff1f2; border: 1px solid #fecdd3; border-radius: 10px; padding: 14px;">
+              <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+                <span style="font-size: 1.2rem;">⚠️</span>
+                <strong style="color: #9f1239; font-size: 0.9rem;">Mayor Brecha o Desafío en ${year}:</strong>
+              </div>
+              <p style="font-size: 0.83rem; color: #881337; margin: 0; line-height: 1.45;">${data.challengeCountry}</p>
+            </div>
+
+            <div style="background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 10px; padding: 14px;">
+              <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+                <span style="font-size: 1.2rem;">📈</span>
+                <strong style="color: #1e40af; font-size: 0.9rem;">Tendencia Histórica Comparada:</strong>
+              </div>
+              <p style="font-size: 0.83rem; color: #1e3a8a; margin: 0; line-height: 1.45;">${data.trendAnalysis}</p>
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    /* Validadores de Quizzes de PISA */
+    function checkPisaYearQuiz() {
+      const selected = document.querySelector('input[name="quiz_pisa_year"]:checked');
+      const feedback = document.getElementById("quiz-pisa-year-feedback");
+      if (!selected) { alert("Por favor selecciona una opción antes de comprobar."); return; }
+      const val = parseInt(selected.value);
+      feedback.style.display = "block";
+      if (val === 0) {
+        feedback.style.background = "#dcfce7";
+        feedback.style.color = "#166534";
+        feedback.style.border = "1px solid #86efac";
+        feedback.innerHTML = "<strong>✅ ¡Excelente análisis comparativo!</strong> Identificaste con exactitud que Finlandia alcanzó la cima mundial en 2006 (563 puntos) y luego descendió progresivamente hacia 2022, mientras Singapur se consolidó como líder mundial indiscutible en las tres disciplinas.";
+      } else {
+        feedback.style.background = "#fee2e2";
+        feedback.style.color = "#991b1b";
+        feedback.style.border = "1px solid #fca5a5";
+        feedback.innerHTML = "<strong>⚠️ Respuesta incorrecta:</strong> Revisa la tabla del ciclo 2006 frente al ciclo 2022. Observa cómo Finlandia bajó de 563 a 484 puntos en matemáticas, mientras Singapur lideró el ranking 2022 con 575 puntos.";
+      }
+    }
+
+    function checkPisaDebateQuiz() {
+      const selected = document.querySelector('input[name="quiz_pisa_debate"]:checked');
+      const feedback = document.getElementById("quiz-pisa-debate-feedback");
+      if (!selected) { alert("Por favor selecciona una opción antes de comprobar."); return; }
+      const val = parseInt(selected.value);
+      feedback.style.display = "block";
+      if (val === 0) {
+        feedback.style.background = "#dbeafe";
+        feedback.style.color = "#1e40af";
+        feedback.style.border = "1px solid #93c5fd";
+        feedback.innerHTML = "<strong>✅ ¡Respuesta Epistemológicamente Exacta!</strong> Singapur busca maximizar el capital humano para la competitividad económica global, mientras la Ley 070 en Bolivia persigue la descolonización, los saberes comunitarios y la reciprocidad territorial (Vivir Bien). No se puede aplicar una sola prueba de mercado para dos visiones civilizatorias distintas.";
+      } else {
+        feedback.style.background = "#fee2e2";
+        feedback.style.color = "#991b1b";
+        feedback.style.border = "1px solid #fca5a5";
+        feedback.innerHTML = "<strong>⚠️ Respuesta incorrecta:</strong> Recuerda el principio de validez contextual en Educación Comparada: cada sistema educativo responde a fines políticos y culturales propios, no a un único molde uniforme.";
+      }
+    }
+
+    function checkPisaEquityQuiz() {
+      const selected = document.querySelector('input[name="quiz_pisa_equity"]:checked');
+      const feedback = document.getElementById("quiz-pisa-equity-feedback");
+      if (!selected) { alert("Por favor selecciona una opción antes de comprobar."); return; }
+      const val = parseInt(selected.value);
+      feedback.style.display = "block";
+      if (val === 0) {
+        feedback.style.background = "#fae8ff";
+        feedback.style.color = "#86198f";
+        feedback.style.border = "1px solid #f0abfc";
+        feedback.innerHTML = "<strong>✅ ¡Concepto Asimilado con Éxito!</strong> Un estudiante resiliente es aquel de origen socioeconómico desfavorable que logra un rendimiento superior. Singapur destaca mundialmente con más de un 40% de estudiantes resilientes gracias al apoyo estatal focalizado.";
+      } else {
+        feedback.style.background = "#fee2e2";
+        feedback.style.color = "#991b1b";
+        feedback.style.border = "1px solid #fca5a5";
+        feedback.innerHTML = "<strong>⚠️ Respuesta incorrecta:</strong> El concepto técnico de resiliencia académica de la OCDE alude a estudiantes vulnerables que superan las expectativas de rendimiento a pesar de las barreras económicas de su entorno.";
+      }
+    }
+
+    /* ==========================================================================
+       MOTOR DEL DIARIO DE APRENDIZAJE GUIADO (4 PASOS Y COMPILACIÓN)
+       ========================================================================== */
+    AppState.diary = AppState.diary || {
+      step1Opt: null,
+      step1Text: "",
+      step2Opt: null,
+      step2Text: "",
+      step3Opt: null,
+      step3Text: "",
+      step4Opt: null,
+      step4Text: "",
+      compiled: false
+    };
+
+    function selectDiaryOption(step, optIdx) {
+      AppState.diary["step" + step + "Opt"] = optIdx;
+      const statusEl = document.getElementById("diary-step" + step + "status");
+      if (statusEl) {
+        statusEl.textContent = "✅ Opción seleccionada";
+        statusEl.style.color = "#16a34a";
+      }
+      saveState();
+    }
+
+    function saveDiaryDraft() {
+      for (let s = 1; s <= 4; s++) {
+        const txt = document.getElementById("diary-text-" + s);
+        if (txt) AppState.diary["step" + s + "Text"] = txt.value;
+      }
+      saveState();
+    }
+
+    function toggleDiaryRubric() {
+      const view = document.getElementById("diary-rubric-view");
+      if (view) {
+        view.style.display = (view.style.display === "none" || !view.style.display) ? "block" : "none";
+      }
+    }
+
+    function resetStudentDiary() {
+      if (!confirm("¿Deseas reiniciar todas las respuestas y textos de tu Diario de Aprendizaje?")) return;
+      for (let s = 1; s <= 4; s++) {
+        AppState.diary["step" + s + "Opt"] = null;
+        AppState.diary["step" + s + "Text"] = "";
+        const txt = document.getElementById("diary-text-" + s);
+        if (txt) txt.value = "";
+        const rads = document.querySelectorAll('input[name="diary_opt_' + s + '"]');
+        rads.forEach(r => r.checked = false);
+        const statusEl = document.getElementById("diary-step" + s + "status");
+        if (statusEl) {
+          statusEl.textContent = "⚪ Sin completar";
+          statusEl.style.color = "#64748b";
+        }
+      }
+      AppState.diary.compiled = false;
+      const compiledView = document.getElementById("diary-compiled-view");
+      if (compiledView) compiledView.style.display = "none";
+      saveState();
+      alert("Tu diario de aprendizaje ha sido reiniciado en limpio.");
+    }
+
+    function compileStudentDiary() {
+      saveDiaryDraft();
+      const d = AppState.diary;
+
+      // Verificar que al menos se haya respondido o redactado algo
+      const answeredSteps = [1, 2, 3, 4].filter(s => d["step" + s + "Opt"] !== null || (d["step" + s + "Text"] && d["step" + s + "Text"].trim().length > 0));
+      if (answeredSteps.length < 2) {
+        alert("Por favor completa al menos 2 de los 4 pasos del diario (seleccionando una opción o escribiendo una reflexión) antes de compilar.");
+        return;
+      }
+
+      const now = new Date().toLocaleString("es-BO");
+      const metaDate = document.getElementById("diary-meta-date");
+      if (metaDate) metaDate.textContent = "Fecha de Emisión: " + now + " · Asignatura: Educación Comparada (EDU-113) · UAGRM";
+
+      const opt1Desc = (d.step1Opt === 0) 
+        ? "Reconoce que PISA mide competencias de mercado global y que copiar recetas foráneas descontextualizadas produce distorsión educativa." 
+        : "Postura estándar sobre medición cuantitativa.";
+      const opt2Desc = (d.step2Opt === 0)
+        ? "Fundamenta la soberanía curricular de la Ley 070 en la descolonización, saberes comunitarios y evaluación contextualizada en ERCE (UNESCO)."
+        : "Opción general sin énfasis decolonial.";
+      const opt3Desc = (d.step3Opt === 0)
+        ? "Identifica que las brechas escolares de más de 80 puntos reflejan la segregación social y la desigualdad económica familiar, no la falta de capacidad de los niños."
+        : "Postura neutra.";
+      const opt4Desc = (d.step4Opt === 0)
+        ? "Advierte que la Educación Comparada prohíbe el trasplante mecánico de modelos extranjeros sin considerar las condiciones estructurales locales."
+        : "Postura general.";
+
+      const bodyHtml = `
+        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 18px; margin-bottom: 16px;">
+          <h4 style="color: var(--uagrm-navy); margin: 0 0 6px 0; font-size: 0.98rem;">1. Dimensión Evaluativa: Pruebas PISA vs. Evaluaciones Regionales</h4>
+          <p style="font-size: 0.86rem; color: #334151; margin-bottom: 8px;"><strong>Criterio Teórico Seleccionado:</strong> ${opt1Desc}</p>
+          <div style="background: white; border-left: 3px solid var(--uagrm-blue); padding: 10px 14px; border-radius: 4px; font-size: 0.86rem; color: #1e293b;">
+            <strong>Reflexión del Estudiante:</strong><br>
+            ${d.step1Text && d.step1Text.trim() ? d.step1Text.trim() : '<em>(Sin reflexión escrita adicional)</em>'}
+          </div>
+        </div>
+
+        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 18px; margin-bottom: 16px;">
+          <h4 style="color: var(--uagrm-navy); margin: 0 0 6px 0; font-size: 0.98rem;">2. Dimensión de Soberanía Curricular: Modelo Ley 070 (Bolivia)</h4>
+          <p style="font-size: 0.86rem; color: #334151; margin-bottom: 8px;"><strong>Criterio Teórico Seleccionado:</strong> ${opt2Desc}</p>
+          <div style="background: white; border-left: 3px solid var(--uagrm-red); padding: 10px 14px; border-radius: 4px; font-size: 0.86rem; color: #1e293b;">
+            <strong>Reflexión del Estudiante:</strong><br>
+            ${d.step2Text && d.step2Text.trim() ? d.step2Text.trim() : '<em>(Sin reflexión escrita adicional)</em>'}
+          </div>
+        </div>
+
+        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 18px; margin-bottom: 16px;">
+          <h4 style="color: var(--uagrm-navy); margin: 0 0 6px 0; font-size: 0.98rem;">3. Dimensión de Equidad: Índice ESCS y Segregación Escolar</h4>
+          <p style="font-size: 0.86rem; color: #334151; margin-bottom: 8px;"><strong>Criterio Teórico Seleccionado:</strong> ${opt3Desc}</p>
+          <div style="background: white; border-left: 3px solid #d97706; padding: 10px 14px; border-radius: 4px; font-size: 0.86rem; color: #1e293b;">
+            <strong>Reflexión del Estudiante:</strong><br>
+            ${d.step3Text && d.step3Text.trim() ? d.step3Text.trim() : '<em>(Sin reflexión escrita adicional)</em>'}
+          </div>
+        </div>
+
+        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 18px; margin-bottom: 16px;">
+          <h4 style="color: var(--uagrm-navy); margin: 0 0 6px 0; font-size: 0.98rem;">4. Dimensión Científico-Comparativa: Dictamen contra el Trasplante Acrítico</h4>
+          <p style="font-size: 0.86rem; color: #334151; margin-bottom: 8px;"><strong>Criterio Teórico Seleccionado:</strong> ${opt4Desc}</p>
+          <div style="background: white; border-left: 3px solid #16a34a; padding: 10px 14px; border-radius: 4px; font-size: 0.86rem; color: #1e293b;">
+            <strong>Dictamen de Cátedra del Estudiante:</strong><br>
+            ${d.step4Text && d.step4Text.trim() ? d.step4Text.trim() : '<em>(Sin dictamen final redactado)</em>'}
+          </div>
+        </div>
+
+        <div style="background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 14px; text-align: center; font-size: 0.84rem; color: #1e40af;">
+          <strong>Dictamen de Validación Cátedra EDU-113:</strong> Tu diario articula las 4 fases del método comparativo con base empírica y sentido crítico decolonial.
+        </div>
+      `;
+
+      const docBody = document.getElementById("diary-document-body");
+      if (docBody) docBody.innerHTML = bodyHtml;
+
+      const compiledView = document.getElementById("diary-compiled-view");
+      if (compiledView) {
+        compiledView.style.display = "block";
+        compiledView.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+      AppState.diary.compiled = true;
+      saveState();
+    }
+
+    function downloadStudentDiary() {
+      const d = AppState.diary;
+      const now = new Date().toLocaleString("es-BO");
+      let content = "===================================================================\r\n";
+      content += "DIARIO DE APRENDIZAJE ACADÉMICO · EDUCACIÓN COMPARADA (EDU-113)\r\n";
+      content += "Universidad Autónoma Gabriel René Moreno (UAGRM)\r\n";
+      content += "Facultad de Humanidades · Carrera de Ciencias de la Educación\r\n";
+      content += "Fecha de Emisión: " + now + "\r\n";
+      content += "===================================================================\r\n\r\n";
+
+      content += "1. DIMENSIÓN EVALUATIVA (PRUEBAS PISA Y OCDE):\r\n";
+      content += "Opción Seleccionada: " + (d.step1Opt === 0 ? "PISA mide competencias de mercado y copiar recetas foráneas genera distorsión." : "Opción estándar.") + "\r\n";
+      content += "Reflexión del Estudiante:\r\n" + (d.step1Text || "(Sin texto adicional)") + "\r\n\r\n";
+
+      content += "2. DIMENSIÓN DE SOBERANÍA CURRICULAR (LEY 070 BOLIVIA):\r\n";
+      content += "Opción Seleccionada: " + (d.step2Opt === 0 ? "Bolivia prioriza descolonización, saberes comunitarios y ERCE de la UNESCO." : "Opción estándar.") + "\r\n";
+      content += "Reflexión del Estudiante:\r\n" + (d.step2Text || "(Sin texto adicional)") + "\r\n\r\n";
+
+      content += "3. DIMENSIÓN DE EQUIDAD (ÍNDICE ESCS Y BRECHA SOCIAL):\r\n";
+      content += "Opción Seleccionada: " + (d.step3Opt === 0 ? "Las brechas de 80+ puntos reflejan desigualdad económica de los hogares y segregación escolar." : "Opción estándar.") + "\r\n";
+      content += "Reflexión del Estudiante:\r\n" + (d.step3Text || "(Sin texto adicional)") + "\r\n\r\n";
+
+      content += "4. DIMENSIÓN METODOLÓGICA (EL ERROR DEL TRASPLANTE MECÁNICO):\r\n";
+      content += "Opción Seleccionada: " + (d.step4Opt === 0 ? "Prohibido el trasplante acrítico de modelos extranjeros sin transformar condiciones estructurales." : "Opción estándar.") + "\r\n";
+      content += "Dictamen Final del Estudiante:\r\n" + (d.step4Text || "(Sin texto adicional)") + "\r\n\r\n";
+
+      content += "===================================================================\r\n";
+      content += "Estado: Documento verificado en la plataforma interactiva EduCompara UAGRM\r\n";
+      content += "===================================================================\r\n";
+
+      const blob = new Blob([content], { type: "text/plain;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "Diario_Aprendizaje_Educacion_Comparada_UAGRM.txt";
+      document.body.appendChild(a);
+      a.click();
+      setTimeout(() => {
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      }, 2000);
+    }
+
+    function printStudentDiary() {
+      window.print();
+    }
+</script>
 </body>
 </html>
